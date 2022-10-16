@@ -1,0 +1,16 @@
+* {
+	margin: 0;
+	border: none;
+	font-size: 0.9rem;
+	color: $darkBlue;
+}
+
+body {
+	background-color: $darkBlue;
+	font-family: $fontFamily;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
