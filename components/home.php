@@ -17,7 +17,7 @@
 			<input type="text" name="search" placeholder="Search" id="Search" class="search_bar"/>
 		</div>
 		<div class="menu flex">
-			<a href="#" class="menu_button flex menu_btn">Watchlist</a>
+			<a href="watchlist.php" class="menu_button flex menu_btn">Watchlist</a>
 			<a href="#" class="menu_button flex menu_btn">Ranking</a>
 			<a href="#" class="menu_button flex menu_btn">Categories</a>
 			<a href="login.php" class="menu_button flex menu_login">Log in</a>

@@ -1,0 +1,87 @@
+.list-box {
+    margin: 2rem 0 2rem 3rem;
+    flex-direction: column;
+
+    &_half {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        width: 100%;
+        margin-bottom: -3rem;
+
+        @include breakpoint-down(medium) {
+            margin-bottom: 3rem;
+        }
+
+        p { 
+            color: $ivory; 
+            font-size: 1.6rem;
+            font-weight: $bold;
+        }
+
+        .movie {
+            flex-direction: column;
+            height: 50%;
+            width: 100%;
+            display: grid;
+            grid-template-rows: 75% 25%;
+            border-radius: 1rem;
+
+            &_poster {
+                border-top-left-radius: 1.5rem;
+                border-top-right-radius: 1.5rem;
+                border: 1px solid $ivory;
+                border-color: rgba(242, 241, 232, 0.7);
+            }
+
+            img {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                border-top-left-radius: 1.5rem;
+                border-top-right-radius: 1.5rem;
+            }
+
+            &_info {
+                font-weight: $bold;
+                background-color: rgba(242, 241, 232, 0.7);
+                border-bottom-left-radius: 1.5rem;
+                border-bottom-right-radius: 1.5rem;
+                flex-direction: column;
+                text-align: center;
+
+                .title {
+                    font-size: 1.1rem;
+                }
+
+                .rating {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(13, 20%);
+            grid-gap: 2rem;
+            width: 100%;
+            overflow-x: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        .mylist {
+            margin-bottom: 1rem;
+        }
+
+        .top5 {
+            grid-template-columns: repeat(5, 20%);
+        }
+    }
+}
+
+
+
+
