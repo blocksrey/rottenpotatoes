@@ -23,7 +23,6 @@
 			<a href="login.php" class="menu_button flex menu_login">Log in</a>
 		</div>
 	</div>
-
 	<script src="../js/script.js"></script>
 </body>
 </html>

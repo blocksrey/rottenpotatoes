@@ -198,11 +198,31 @@ a {
 }
 
 .list-box {
-  margin: 2rem 0 2rem 3rem;
+  margin: 2rem 3rem;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-height: 70vh;
+  gap: 2rem;
+}
+
+.list-box .showall {
+  height: 1rem;
+  width: 5rem;
+  border: 2px solid #0D698B;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  text-align: center;
+  color: #F2F1E8;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.list-box .showall:hover {
+  background-color: #0D698B;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .list-box_half {
@@ -215,13 +235,11 @@ a {
           align-items: flex-start;
   gap: 1rem;
   width: 100%;
-  margin-bottom: -3rem;
+  overflow-x: scroll;
 }
 
-@media (max-width: 63.9375em) {
-  .list-box_half {
-    margin-bottom: 3rem;
-  }
+.list-box_half::-webkit-scrollbar {
+  display: none;
 }
 
 .list-box_half p {
@@ -231,20 +249,18 @@ a {
 }
 
 .list-box_half .movie {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 50%;
-  width: 100%;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 75% 25%;
       grid-template-rows: 75% 25%;
   border-radius: 1rem;
+  width: 15rem;
+  height: 25rem;
+  margin-right: 2rem;
 }
 
 .list-box_half .movie_poster {
+  position: relative;
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
   border: 1px solid #F2F1E8;
@@ -252,9 +268,9 @@ a {
 }
 
 .list-box_half .movie img {
-  position: relative;
-  width: 100%;
+  position: absolute;
   height: 100%;
+  width: 100%;
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
 }
@@ -277,28 +293,5 @@ a {
 
 .list-box_half .movie_info .rating {
   font-size: 1rem;
-}
-
-.list-box_half .grid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (20%)[13];
-      grid-template-columns: repeat(13, 20%);
-  grid-gap: 2rem;
-  width: 100%;
-  overflow-x: scroll;
-}
-
-.list-box_half .grid::-webkit-scrollbar {
-  display: none;
-}
-
-.list-box_half .mylist {
-  margin-bottom: 1rem;
-}
-
-.list-box_half .top5 {
-  -ms-grid-columns: (20%)[5];
-      grid-template-columns: repeat(5, 20%);
 }
 /*# sourceMappingURL=style.css.map */
