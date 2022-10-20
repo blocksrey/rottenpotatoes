@@ -1,0 +1,63 @@
+.welcometxt{
+    margin-top: 4rem;
+    flex-direction: column;
+    text-align: center;
+    .welcome{
+            flex-direction: row;
+            font-size: 8em;
+            font-weight: bold;
+            color : $ivory;
+        }
+    img{
+            padding-top: 1rem;
+            padding-left: 1rem;
+            width:8rem;
+            height:8rem;
+    }
+    .greet{
+        color : $ivory;
+        font-size:2em;
+    }
+
+}
+.homebutton{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    .hollowred {
+        height: 1.2rem;
+        width: 6rem;
+        border: 2px solid $red;
+        background: $red;
+        padding: 0.5rem 1rem;
+        border-radius: 15px;
+        text-align: center;
+        color: $ivory;
+        align-self: flex-end;
+    
+        &:hover {
+            background-color: $ivory;
+            border: 2px solid $ivory;
+            color:black;
+        }
+    }
+    .hollowblue{
+        height: 1.2rem;
+        width: 6rem;
+        border: 2px solid #0D698B;
+        background: #0D698B;
+        padding: 0.5rem 1rem;
+        border-radius: 15px;
+        text-align: center;
+        color: $ivory;
+        align-self: flex-end;
+
+        &:hover{
+            background-color: $ivory;
+            border: 2px solid $ivory;
+            color:black;
+            transition: all 0.15s ease-in-out;
+        }
+    }
+}
