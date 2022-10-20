@@ -45,7 +45,7 @@
 	gap: 1rem;
 	color: $ivory;
 
-	a {
+	a { 
 		font-size: 1.05rem;
 		font-weight: $bold;
 		width: 7rem;
@@ -54,6 +54,8 @@
 	}
 
 	&_btn {
+		transition: all 0.3s ease-in-out;
+
 		&:hover {
 			color: $ivory;
 			background-color: $darkBlue;
@@ -65,7 +67,8 @@
 		background-color: $red;
 		color: $ivory;
 		border: 2px solid $red;
-
+		transition: all 100ms ease-in-out;
+	
 		&:hover {
 			background-color: $ivory;
 			color: $red;
@@ -73,3 +76,9 @@
 		}
 	}
 }
+
+
+
+
+
+
