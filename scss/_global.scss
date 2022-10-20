@@ -1,0 +1,26 @@
+* {
+	margin: 0;
+	border: none;
+	font-size: 0.9rem;
+	color: $darkBlue;
+}
+
+html, body {
+    max-width: 100%;
+	overflow-x: hidden;
+	background-color: $darkBlue;
+	font-family: $fontFamily;
+	width: 100%;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+

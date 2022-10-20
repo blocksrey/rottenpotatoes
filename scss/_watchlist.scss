@@ -1,82 +1,90 @@
 .list-box {
-	margin: 2rem 3rem;
-	flex-direction: column;
-	min-height: 70vh;
-	gap: 2rem;
+    margin: 2rem 3.4rem;
+    flex-direction: column;
 
-	.hollowblue {
-		height: 1rem;
-		width: 5rem;
-		border: 2px solid $blue;
-		padding: 0.5rem 1rem;
-		border-radius: 15px;
-		text-align: center;
-		color: $ivory;
-		align-self: flex-end;
+    .showall {
+        width: 100%;
+        justify-content: flex-end;
 
-		&:hover {
-			background-color: $blue;
-			transition: all 0.15s ease-in-out;
-		}
-	}
+        &_btn {
+            border: 2px solid $blue;
+            padding: 0.9rem 1.5rem;
+            border-radius: 1.5rem;
+            text-align: center;
+            align-self: flex-end;
+            transition: all 0.15s ease-in-out;
+            cursor: pointer;
+            color: $ivory;
 
-	&_half {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 1rem;
-		width: 100%;
-		overflow-x: scroll;
+            &:hover { 
+                background-color: $blue; 
+            }
+        }
+    }
 
-		&::-webkit-scrollbar {
-			display: none;
-		}
+    &_half {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        width: 100%;
+        overflow-x: scroll;
+        padding: 2rem 3rem;
 
-		p {
-			color: $ivory;
-			font-size: 1.6rem;
-			font-weight: $bold;
-		}
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
-		.movie {
-			display: grid;
-			grid-template-rows: 75% 25%;
-			border-radius: 1rem;
-			width: 15rem;
-			height: 25rem;
-			margin-right: 2rem;
+        .label { 
+            color: $ivory;
+            font-size: 2rem;
+            font-weight: $bold;
+            text-transform: uppercase;
+        }
 
-			&_poster {
-				position: relative;
-				border-top-left-radius: 1.5rem;
-				border-top-right-radius: 1.5rem;
-				border: 1px solid $ivory;
-				border-color: rgba(242, 241, 232, 0.7);
-			}
+        .movie {
+            display: grid;
+            grid-template-rows: 80% 20%;
+            border-radius: 1rem;
+            width: 16rem;
+            height: 27rem;
+            margin-right: 5rem;
 
-			img {
-				position: absolute;
-				height: 100%;
-				width: 100%;
-				border-top-left-radius: 1.5rem;
-				border-top-right-radius: 1.5rem;
-			}
+            &_poster {
+                position: relative;
+                border-top-left-radius: 1.5rem;
+                border-top-right-radius: 1.5rem;
+            
+                .mov {
+                    position: absolute;
+                    height: 125%;
+                    width: 120%;
+                    border-radius: 1.5rem;
+                    transition: all 0.5s ease-in-out;
 
-			&_info {
-				font-weight: $bold;
-				background-color: rgba(242, 241, 232, 0.7);
-				border-bottom-left-radius: 1.5rem;
-				border-bottom-right-radius: 1.5rem;
-				flex-direction: column;
-				text-align: center;
+                    &:hover {
+                        transform: scale(105%,105%) translate(0, -5.2rem);
+                        transition: all 0.5s ease-in-out;
+                    }
+                }
+            }
 
-				.title {
-					font-size: 1.1rem;
-				}
+            &_info {
+                font-weight: $bold;
+                background-color: rgba(242, 241, 232, 0.7);
+                flex-direction: column;
+                text-align: center;
+                width: 120%;
+                border-bottom-left-radius: 1.5rem;
+                border-bottom-right-radius: 1.5rem;
 
-				.rating {
-					font-size: 1rem;
-				}
-			}
-		}
-	}
+                .title {
+                    p {
+                        font-size: 1.2rem;
+                        color: $darkBlue;
+                    }
+                }
+            }
+        }
+    }
 }
+

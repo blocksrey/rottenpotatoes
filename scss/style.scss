@@ -1,8 +1,12 @@
 @import "variables";
 @import "mixins";
 
+@import "global";
 @import "header";
+@import "welcome";
 @import "home";
 @import "login";
 @import "watchlist";
-@import "welcome";
+@import "movie";
+@import "categories";
+@import "ranking";
