@@ -1,6 +1,6 @@
 <?php @include "header.php" ?>
 
-<div class="categ-box flex">
+<div class="categ-box list-box flex">
     <div class="categ flex">
         <a href="#" class="categ_btn">Comedy</a>
         <a href="#" class="categ_btn">Action</a>
@@ -8,7 +8,7 @@
         <a href="#" class="categ_btn">Horror</a>
         <a href="#" class="categ_btn">Drama</a>
     </div>
-    <div class="categ-box_half flex">
+    <div class="list-box_half flex">
         <div class="label">Discover movies by Category</div>
         <div class="list flex">
             <div class="list_movie">

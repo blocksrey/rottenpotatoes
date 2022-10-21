@@ -30,17 +30,21 @@
     </div>
 
     <div class="list-box_half flex">
-        <p class="label">Discover New Movies</p>
+        <p class="label home-list-label">Discover New Movies</p>
         <div class="explore flex">
             <div class="movie">
                 <div class="movie_poster">
                     <a href="movie.php"><img class="mov" src="https://originalvintagemovieposters.com/wp-content/uploads/2020/05/Ghostbusters-9294-scaled.jpg"></a>
                 </div>
                 <div class="movie_info flex">
-                    <div class="title">Ghostbusters</div><br>
-                    <div class="rating">Rate ☆☆☆☆☆ </div>
+                    <div class="movie_info_text">
+                        <div class="title">Ghostbusters</div><br>
+                        <div class="rating">Rate ☆☆☆☆☆</div>
+                    </div>
+                    <div class="movie_info_potato">
+                        <a href=#><img class="like" src="../images/potato-add.png"></a>
+                    </div>
                 </div>
-                <!--<a href=#><img class="like" src="../images/potato.png"></a>-->
             </div>
             <div class="movie">
                 <div class="movie_poster">
