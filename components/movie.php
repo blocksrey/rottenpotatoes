@@ -28,7 +28,7 @@
             </div>
             <div class="options flex">
                 <div class="options_rate">
-                    <input type="submit" name="ratesubmit" value="Your Rating: ☆☆☆☆☆"/>
+                    <input type="submit" name="ratesubmit" value="My Rating: ☆☆☆☆☆"/>
                 </div>
                 <div class="options_submit">
                     <input type="submit" name="submit" value="Submit"/>

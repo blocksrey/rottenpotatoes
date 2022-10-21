@@ -25,7 +25,7 @@
     &_half {
         flex-direction: column;
         align-items: flex-start;
-        gap: 2rem;
+        gap: 2.9rem;
         width: 100%;
         overflow-x: scroll;
         padding: 2rem 3rem;
@@ -34,20 +34,24 @@
             display: none;
         }
 
-        .label { 
-            color: $ivory;
-            font-size: 2rem;
-            font-weight: $bold;
-            text-transform: uppercase;
-        }
+        .mylist, .top5 { padding-top: 0.7rem; }
 
         .movie {
             display: grid;
-            grid-template-rows: 80% 20%;
+            grid-template-rows: 75% 25%;
             border-radius: 1rem;
             width: 16rem;
             height: 27rem;
             margin-right: 5rem;
+            transition: all 0.5s ease-in-out;
+
+            &:hover {
+                transition: all 0.5s ease-in-out;
+
+                .mov { 
+                    transform: scale(105%, 105%) translate(0, -6.7rem);
+                }
+            }
 
             &_poster {
                 position: relative;
@@ -56,32 +60,35 @@
             
                 .mov {
                     position: absolute;
-                    height: 125%;
+                    height: 135%; 
                     width: 120%;
                     border-radius: 1.5rem;
                     transition: all 0.5s ease-in-out;
-
-                    &:hover {
-                        transform: scale(105%,105%) translate(0, -5.2rem);
-                        transition: all 0.5s ease-in-out;
-                    }
                 }
             }
 
             &_info {
-                font-weight: $bold;
-                background-color: rgba(242, 241, 232, 0.7);
-                flex-direction: column;
                 text-align: center;
                 width: 120%;
+                background-color: rgba(242, 241, 232, 0.7);
                 border-bottom-left-radius: 1.5rem;
                 border-bottom-right-radius: 1.5rem;
+                flex-direction: row;
 
-                .title {
-                    p {
-                        font-size: 1.2rem;
+                &_text {
+                    font-weight: $bold;
+                    flex-direction: column;
+                    padding: 1rem;
+
+                    .title {
+                        font-size: 1.1rem;
                         color: $darkBlue;
                     }
+                }
+
+                &_potato {
+                    //margin-left: 2rem;
+                    padding: 1rem;
                 }
             }
         }

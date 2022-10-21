@@ -30,6 +30,10 @@ a {
           align-items: center;
 }
 
+.hidden {
+  display: none;
+}
+
 .nav-bar {
   height: 4rem;
   background-color: #F2F1E8;
@@ -200,6 +204,10 @@ a {
   background: #0D698B;
 }
 
+.wrapper {
+  margin-bottom: 3rem;
+}
+
 .wrapper .top-title {
   font-size: 2.4rem;
   color: #F2F1E8;
@@ -211,7 +219,7 @@ a {
 }
 
 .wrapper .movie-box {
-  margin: 1rem 5rem;
+  margin: 0 5rem;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -292,12 +300,13 @@ a {
   font-size: 1.2rem;
 }
 
-.wrapper .like {
-  width: 40%;
-  height: 60%;
-  top: -20rem;
-  position: relative;
-  display: none;
+.wrapper .home-list-label {
+  padding-bottom: 1rem;
+}
+
+.like {
+  width: 3.2rem;
+  height: 3.2rem;
 }
 
 .user-box {
@@ -412,7 +421,7 @@ a {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  gap: 2rem;
+  gap: 2.9rem;
   width: 100%;
   overflow-x: scroll;
   padding: 2rem 3rem;
@@ -422,22 +431,31 @@ a {
   display: none;
 }
 
-.list-box_half .label {
-  color: #F2F1E8;
-  font-size: 2rem;
-  font-weight: 600;
-  text-transform: uppercase;
+.list-box_half .mylist, .list-box_half .top5 {
+  padding-top: 0.7rem;
 }
 
 .list-box_half .movie {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 80% 20%;
-      grid-template-rows: 80% 20%;
+  -ms-grid-rows: 75% 25%;
+      grid-template-rows: 75% 25%;
   border-radius: 1rem;
   width: 16rem;
   height: 27rem;
   margin-right: 5rem;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.list-box_half .movie:hover {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.list-box_half .movie:hover .mov {
+  -webkit-transform: scale(105%, 105%) translate(0, -6.7rem);
+          transform: scale(105%, 105%) translate(0, -6.7rem);
 }
 
 .list-box_half .movie_poster {
@@ -448,36 +466,41 @@ a {
 
 .list-box_half .movie_poster .mov {
   position: absolute;
-  height: 125%;
+  height: 135%;
   width: 120%;
   border-radius: 1.5rem;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
-.list-box_half .movie_poster .mov:hover {
-  -webkit-transform: scale(105%, 105%) translate(0, -5.2rem);
-          transform: scale(105%, 105%) translate(0, -5.2rem);
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+.list-box_half .movie_info {
+  text-align: center;
+  width: 120%;
+  background-color: rgba(242, 241, 232, 0.7);
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
-.list-box_half .movie_info {
+.list-box_half .movie_info_text {
   font-weight: 600;
-  background-color: rgba(242, 241, 232, 0.7);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  text-align: center;
-  width: 120%;
-  border-bottom-left-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
+  padding: 1rem;
 }
 
-.list-box_half .movie_info .title p {
-  font-size: 1.2rem;
+.list-box_half .movie_info_text .title {
+  font-size: 1.1rem;
   color: #050533;
+}
+
+.list-box_half .movie_info_potato {
+  padding: 1rem;
 }
 
 .container {
@@ -537,7 +560,7 @@ a {
   line-height: 1.5rem;
   font-size: 1rem;
   text-align: justify;
-  background-color: rgba(212, 212, 212, 0.15);
+  border: 2px solid rgba(212, 212, 212, 0.15);
   border-radius: 1.5rem;
   padding: 3rem;
 }
@@ -681,15 +704,7 @@ a {
   text-align: justify;
 }
 
-.categ-box {
-  margin: 2rem 3.4rem;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.categ-box .categ {
+.list-box .categ {
   width: 100%;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
@@ -697,7 +712,7 @@ a {
   gap: 3rem;
 }
 
-.categ-box .categ_btn {
+.list-box .categ_btn {
   border: 2px solid #0D698B;
   padding: 0.9rem 1.5rem;
   border-radius: 1.5rem;
@@ -709,11 +724,11 @@ a {
   text-transform: uppercase;
 }
 
-.categ-box .categ_btn:hover {
+.list-box .categ_btn:hover {
   background-color: #0D698B;
 }
 
-.categ-box_half {
+.list-box_half {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -721,19 +736,19 @@ a {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  gap: 2rem;
+  gap: 2.6rem;
   width: 100%;
   padding: 2rem 3rem;
 }
 
-.categ-box_half .label {
+.list-box_half .label {
   color: #F2F1E8;
   font-size: 2rem;
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.categ-box_half .list {
+.list-box_half .list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -742,7 +757,7 @@ a {
       flex-wrap: wrap;
 }
 
-.categ-box_half .list_movie {
+.list-box_half .list_movie {
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 80% 20%;
@@ -753,13 +768,13 @@ a {
   margin-right: 5rem;
 }
 
-.categ-box_half .list_movie_poster {
+.list-box_half .list_movie_poster {
   position: relative;
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
 }
 
-.categ-box_half .list_movie_poster img {
+.list-box_half .list_movie_poster img {
   position: absolute;
   height: 125%;
   width: 120%;
@@ -768,14 +783,14 @@ a {
   transition: all 0.5s ease-in-out;
 }
 
-.categ-box_half .list_movie_poster img:hover {
+.list-box_half .list_movie_poster img:hover {
   -webkit-transform: scale(105%, 105%) translate(0, -4.2rem);
           transform: scale(105%, 105%) translate(0, -4.2rem);
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
-.categ-box_half .list_movie_info {
+.list-box_half .list_movie_info {
   font-weight: 600;
   background-color: rgba(242, 241, 232, 0.7);
   -webkit-box-orient: vertical;
@@ -788,12 +803,12 @@ a {
   border-bottom-right-radius: 1.5rem;
 }
 
-.categ-box_half .list_movie_info .title p {
+.list-box_half .list_movie_info .title p {
   font-size: 1.2rem;
   color: #050533;
 }
 
-.stars {
-  margin-top: 0.5rem;
+.top5-ranking {
+  padding-top: 3.5rem;
 }
 /*# sourceMappingURL=style.css.map */
