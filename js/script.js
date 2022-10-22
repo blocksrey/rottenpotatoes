@@ -17,12 +17,10 @@ Search.onkeydown = info => { if (info.keyCode == 13) handleSearch(Search.value) 
 
 onhashchange = info => { print('Begin search query on: ' + Search.value) }
 
-function toggleDisplay() {
-    var signin = document.getElementById("signin");
+/*function toggleDisplay() {
+    var signin = document.getElementById("err");
     signin.classList.toggle("hide");
-    var signup = document.getElementById("signup");
-    signup.classList.toggle("hide");
-};
+};*/
 
 /*var keys = document.getElementsByClassName("movie");
 

@@ -15,9 +15,6 @@
                     <div class="movie_info_text flex">
                         <div class="title">Avengers: End Game</div>
                     </div>
-                    <div class="movie_info_potato hidden">
-
-                    </div>
                 </div>
             </div>
             <div class="movie">
@@ -25,40 +22,66 @@
                     <a href="movie.php"><img class="mov" src="https://image.tmdb.org/t/p/original/hoqe3leVhHBgboB6G1bv1kB8K4p.jpg"></a>
                 </div>
                 <div class="movie_info flex">
-                    <div class="title">Parasite</div>
+                    <div class="movie_info_text flex">
+                        <div class="title">Parasite</div>
+                    </div>
                 </div>
             </div>
             <div class="movie">
                 <div class="movie_poster"></div>
-                <div class="movie_info flex">Movie Info</div>
+                <div class="movie_info flex">
+                    <div class="movie_info_text flex">
+                        <div class="title">Movie Info</div>
+                    </div>
+                </div>
             </div>
             <div class="movie">
                 <div class="movie_poster"></div>
-                <div class="movie_info flex">Movie Info</div>
+                <div class="movie_info flex">
+                    <div class="movie_info_text flex">
+                        <div class="title">Movie Info</div>
+                    </div>
+                </div>
             </div>
             <div class="movie">
                 <div class="movie_poster"></div>
-                <div class="movie_info flex">Movie Info</div>
+                <div class="movie_info flex">
+                    <div class="movie_info_text flex">
+                        <div class="title">Movie Info</div>
+                    </div>
+                </div>
             </div>
             <div class="movie">
                 <div class="movie_poster"></div>
-                <div class="movie_info flex">Movie Info</div>
+                <div class="movie_info flex">
+                    <div class="movie_info_text flex">
+                        <div class="title">Movie Info</div>
+                    </div>
+                </div>
             </div>
             <div class="movie">
                 <div class="movie_poster"></div>
-                <div class="movie_info flex">Movie Info</div>
+                <div class="movie_info flex">
+                    <div class="movie_info_text flex">
+                        <div class="title">Movie Info</div>
+                    </div>
+                </div>
             </div>
             <div class="movie">
                 <div class="movie_poster"></div>
-                <div class="movie_info flex">Movie Info</div>
+                <div class="movie_info flex">
+                    <div class="movie_info_text flex">
+                        <div class="title">Movie Info</div>
+                    </div>
+                </div>
             </div>
             <div class="movie">
                 <div class="movie_poster"></div>
-                <div class="movie_info flex">Movie Info</div>
-            </div>
-            <div class="movie">
-                <div class="movie_poster"></div>
-                <div class="movie_info flex">Movie Info</div>
+                <div class="movie_info flex">
+                    <div class="movie_info_text flex">
+                        <div class="title">Movie Info</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -70,24 +93,47 @@
                     <a href=#><img class="mov" src="https://img.reelgood.com/content/movie/786deb32-77a8-47a7-9743-24fcef815909/poster-780.jpg"></a>
                 </div>
                 <div class="movie_info flex">
-                    <div class="title"><p>Sherlock Holmes</p></div>
+                    <div class="movie_info_text">
+                        <div class="title">Sherlock Holmes</div><br>
+                        <div class="rating">My Rating: ☆☆☆☆☆</div>
+                    </div>
                 </div>
             </div>
             <div class="movie">
                 <div class="movie_poster"></div>
-                <div class="movie_info flex">Movie Info</div>
+                <div class="movie_info flex">
+                    <div class="movie_info_text flex">
+                        <div class="title">Movie Info</div><br>
+                        <div class="rating">My Rating: ☆☆☆☆☆</div>
+                    </div>
+                </div>
             </div>
             <div class="movie">
                 <div class="movie_poster"></div>
-                <div class="movie_info flex">Movie Info</div>
+                <div class="movie_info flex">
+                    <div class="movie_info_text flex">
+                        <div class="title">Movie Info</div><br>
+                        <div class="rating">My Rating: ☆☆☆☆☆</div>
+                    </div>
+                </div>
             </div>
             <div class="movie">
                 <div class="movie_poster"></div>
-                <div class="movie_info flex">Movie Info</div>
+                <div class="movie_info flex">
+                    <div class="movie_info_text flex">
+                        <div class="title">Movie Info</div><br>
+                        <div class="rating">My Rating: ☆☆☆☆☆</div>
+                    </div>
+                </div>
             </div>
             <div class="movie">
                 <div class="movie_poster"></div>
-                <div class="movie_info flex">Movie Info</div>
+                <div class="movie_info flex">
+                    <div class="movie_info_text flex">
+                        <div class="title">Movie Info</div><br>
+                        <div class="rating">My Rating: ☆☆☆☆☆</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

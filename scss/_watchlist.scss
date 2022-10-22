@@ -34,7 +34,7 @@
             display: none;
         }
 
-        .mylist, .top5 { padding-top: 0.7rem; }
+        .mylist, .top5 { padding-top: 0.8rem; }
 
         .movie {
             display: grid;
@@ -70,7 +70,8 @@
             &_info {
                 text-align: center;
                 width: 120%;
-                background-color: rgba(242, 241, 232, 0.7);
+                background-color: rgba(212, 212, 212, 0.15);
+                //background-color: rgba(242, 241, 232, 0.7);
                 border-bottom-left-radius: 1.5rem;
                 border-bottom-right-radius: 1.5rem;
                 flex-direction: row;
@@ -82,12 +83,15 @@
 
                     .title {
                         font-size: 1.1rem;
-                        color: $darkBlue;
+                        color: $ivory;
+                    }
+
+                    .rating {
+                        color: $ivory;
                     }
                 }
 
                 &_potato {
-                    //margin-left: 2rem;
                     padding: 1rem;
                 }
             }

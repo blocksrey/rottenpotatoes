@@ -9,8 +9,8 @@
             </div>
             <div class="movie_info flex">
                 <div class="movie_info_text flex">
-                    <div class="title">Wanderlust</div>
-                    <div class="rating"><p>Rating: ★★★☆☆</p></div>
+                    <div class="title">Wanderlust</div><br>
+                    <div class="rating">Rating: ★★★☆☆</div>
                 </div>
                 <div class="movie_info_potato">
                     <a href=#><img class="like" src="../images/potato-add.png"></a>
@@ -23,8 +23,8 @@
             </div>
             <div class="movie_info flex">
                 <div class="movie_info_text flex">
-                    <div class="title">Avatar</div>
-                    <div class="rating"><p>Rating: ★★★☆☆</p></div>
+                    <div class="title">Avatar</div><br>
+                    <div class="rating">Rating: ★★★☆☆</div>
                 </div>
                 <div class="movie_info_potato">
                     <a href=#><img class="like" src="../images/potato-add.png"></a>
@@ -37,8 +37,8 @@
             </div>
             <div class="movie_info flex">
                 <div class="movie_info_text flex">
-                    <div class="title">Joker</div>
-                    <div class="rating"><p>Rating: ★★★☆☆</p></div>
+                    <div class="title">Joker</div><br>
+                    <div class="rating">Rating: ★★★☆☆</div>
                 </div>
                 <div class="movie_info_potato">
                     <a href=#><img class="like" src="../images/potato-add.png"></a>
@@ -63,8 +63,13 @@
                 <a href=#><img class="mov" src="https://image.tmdb.org/t/p/original/el0zWThBd9VmZOmZ1BwbyUq5XLg.jpg"></a>
             </div>
             <div class="movie_info flex">
-                <div class="title"><p>Minions: Go Back to the Beginning</p></div>
-                <div class="stars"><p>Rating: ★★★☆☆</p></div>
+                <div class="movie_info_text flex">
+                    <div class="title">Minions: Go Back to the Beginning</div><br>
+                    <div class="rating">Rating: ★★★☆☆</div>
+                </div>
+                <div class="movie_info_potato">
+                    <a href=#><img class="like" src="../images/potato-add.png"></a>
+                </div>
             </div>
         </div>
         <div class="movie">
@@ -72,8 +77,13 @@
                 <a href=#><img class="mov" src="https://image.tmdb.org/t/p/original/jEquRxbI1o7b7xmCoW6agSK1hM5.jpg"></a>
             </div>
             <div class="movie_info flex">
-                <div class="title"><p>Top Gun I</p></div>
-                <div class="stars"><p>Rating: ★★★☆☆</p></div>
+                <div class="movie_info_text flex">
+                    <div class="title">Top Gun I</div><br>
+                    <div class="rating">Rating: ★★★☆☆</div>
+                </div>
+                <div class="movie_info_potato">
+                    <a href=#><img class="like" src="../images/potato-add.png"></a>
+                </div>
             </div>
         </div>
         <div class="movie">
@@ -81,8 +91,13 @@
                 <a href=#><img class="mov" src="https://picfiles.alphacoders.com/349/349732.jpg"></a>
             </div>
             <div class="movie_info flex">
-                <div class="title"><p>The Devil Wears Prada</p></div>
-                <div class="stars"><p>Rating: ★★★☆☆</p></div>
+                <div class="movie_info_text flex">
+                    <div class="title">The Devil Wears Prada</div><br>
+                    <div class="rating">Rating: ★★★☆☆</div>
+                </div>
+                <div class="movie_info_potato">
+                    <a href=#><img class="like" src="../images/potato-add.png"></a>
+                </div>
             </div>
         </div>
         <div class="movie">

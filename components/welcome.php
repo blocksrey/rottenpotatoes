@@ -4,7 +4,7 @@
     <div class="welcometxt flex">
         <span class="welcome">Welcome to<br>Rotten Potatoes!</span>
         <img src="../images/potato.png"> <br>
-        <div class="greet">Elevate your movie life with Rotten Potates!</div>
+        <div class="greet">Elevate your movie life with Rotten Potatoes!</div>
     </div>
         
     <div class ="homebutton">

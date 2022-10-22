@@ -34,6 +34,26 @@ a {
   display: none;
 }
 
+.small-label, .label {
+  color: #F2F1E8;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.small-label {
+  font-size: 1.5rem;
+}
+
+.label {
+  font-size: 2rem;
+}
+
+.error {
+  font-size: 1rem;
+  color: #E34234;
+  font-weight: 600;
+}
+
 .nav-bar {
   height: 4rem;
   background-color: #F2F1E8;
@@ -240,13 +260,6 @@ a {
   border-radius: 1.5rem;
 }
 
-.wrapper .movie-box_half .label {
-  font-size: 1.5rem;
-  color: #F2F1E8;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
 .wrapper .movie-box_half .big-movie {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -258,18 +271,20 @@ a {
 }
 
 .wrapper .movie-box_half .big-movie_poster {
-  width: 70%;
+  width: 80%;
   height: 30rem;
 }
 
 .wrapper .movie-box_half .big-movie_poster img {
+  -o-object-fit: cover;
+     object-fit: cover;
   height: 100%;
   width: 100%;
   border-radius: 1.5rem;
 }
 
 .wrapper .movie-box_half .big-movie_info {
-  width: 70%;
+  width: 80%;
   height: 100%;
   position: absolute;
   -webkit-box-orient: vertical;
@@ -432,7 +447,7 @@ a {
 }
 
 .list-box_half .mylist, .list-box_half .top5 {
-  padding-top: 0.7rem;
+  padding-top: 0.8rem;
 }
 
 .list-box_half .movie {
@@ -476,7 +491,7 @@ a {
 .list-box_half .movie_info {
   text-align: center;
   width: 120%;
-  background-color: rgba(242, 241, 232, 0.7);
+  background-color: rgba(212, 212, 212, 0.15);
   border-bottom-left-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
   -webkit-box-orient: horizontal;
@@ -496,7 +511,11 @@ a {
 
 .list-box_half .movie_info_text .title {
   font-size: 1.1rem;
-  color: #050533;
+  color: #F2F1E8;
+}
+
+.list-box_half .movie_info_text .rating {
+  color: #F2F1E8;
 }
 
 .list-box_half .movie_info_potato {
@@ -556,13 +575,27 @@ a {
   font-size: 1.9rem;
 }
 
-.container .movie_info_desc {
+.container .movie_info_desc, .container .movie_info_actors {
   line-height: 1.5rem;
   font-size: 1rem;
   text-align: justify;
-  border: 2px solid rgba(212, 212, 212, 0.15);
   border-radius: 1.5rem;
+}
+
+.container .movie_info_desc {
+  border: 2px solid rgba(212, 212, 212, 0.15);
   padding: 3rem;
+}
+
+.container .movie_info_actors {
+  border: 2px solid rgba(212, 212, 212, 0.15);
+  padding: 1.5rem;
+}
+
+.container .movie_info_actors .cast {
+  font-weight: 800;
+  color: #F2F1E8;
+  font-size: 1rem;
 }
 
 .container .movie_info_options .rating {
@@ -719,7 +752,6 @@ a {
   text-align: center;
   -webkit-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
-  cursor: pointer;
   color: #F2F1E8;
   text-transform: uppercase;
 }
@@ -728,84 +760,16 @@ a {
   background-color: #0D698B;
 }
 
-.list-box_half {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  gap: 2.6rem;
-  width: 100%;
-  padding: 2rem 3rem;
-}
-
-.list-box_half .label {
-  color: #F2F1E8;
-  font-size: 2rem;
-  font-weight: 600;
-  text-transform: uppercase;
+.list-box_half #discover {
+  padding-top: 2rem;
 }
 
 .list-box_half .list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 1rem;
+  row-gap: 2.5rem;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-}
-
-.list-box_half .list_movie {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 80% 20%;
-      grid-template-rows: 80% 20%;
-  border-radius: 1rem;
-  width: 14.5rem;
-  height: 23rem;
-  margin-right: 5rem;
-}
-
-.list-box_half .list_movie_poster {
-  position: relative;
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
-}
-
-.list-box_half .list_movie_poster img {
-  position: absolute;
-  height: 125%;
-  width: 120%;
-  border-radius: 1.5rem;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-.list-box_half .list_movie_poster img:hover {
-  -webkit-transform: scale(105%, 105%) translate(0, -4.2rem);
-          transform: scale(105%, 105%) translate(0, -4.2rem);
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-.list-box_half .list_movie_info {
-  font-weight: 600;
-  background-color: rgba(242, 241, 232, 0.7);
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-align: center;
-  width: 120%;
-  border-bottom-left-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
-}
-
-.list-box_half .list_movie_info .title p {
-  font-size: 1.2rem;
-  color: #050533;
 }
 
 .top5-ranking {

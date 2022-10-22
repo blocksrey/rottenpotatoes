@@ -33,13 +33,28 @@
                 font-size: 1.9rem;
             }
 
-            &_desc {
+            &_desc, &_actors {
                 line-height: 1.5rem;
                 font-size: 1rem;
                 text-align: justify;
-                border: 2px solid rgba(212, 212, 212, 0.15);
                 border-radius: 1.5rem;
+            }
+
+            &_desc {
+                border: 2px solid rgba(212, 212, 212, 0.15);
+                //border: 1px solid $red;
                 padding: 3rem;
+            }
+
+            &_actors {
+                border: 2px solid rgba(212, 212, 212, 0.15);
+                padding: 1.5rem;
+
+                .cast {
+                    font-weight: $extraBold;
+                    color: $ivory;
+                    font-size: 1rem;
+                }
             }
 
             &_options {
