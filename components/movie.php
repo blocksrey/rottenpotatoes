@@ -1,12 +1,18 @@
 <?php @include "header.php" ?>
 
 <div class="container flex">
-    <div class="movie">
+    <div class="label" id="moviephp-title">Avengers: End Game</div>
+    <div class="moviephp-options flex">
+        <div class="rating">Average Potato Rating: ★★★★☆</div>
+        <div class="add-movie">
+            <input type="submit" name="faddmovie" class="add-movie" value="+ My Watchlist"/>
+        </div>
+    </div>
+    <div class="movie flex">
         <div class="movie_poster flex">
             <img src="https://www.orlandosentinel.com/resizer/vzlAoTH2BUqFjnq2veIap7Lj5Cc=/1200x1777/top/arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/YG5DCUXYCVEHNJ5Y4DHCTKT6MM.jpg"/>
         </div>
         <div class="movie_info flex">
-            <div class="movie_info_title">Avengers: The End Game</div>
             <div class="movie_info_desc">
                 Reuniting in the present, the Avengers place the Stones into a gauntlet that Stark, Banner, and Rocket had built. Having the most resistance to their radiation, Banner wields the gauntlet and reverses Thanos's disintegrations. Meanwhile, 2014-Nebula, impersonating her future self, uses the time machine to transport 2014-Thanos and his warship to the present, which he then uses to destroy the Avengers Compound.
                 <br><br>After half of all life is snapped away by Thanos, the Avengers are left scattered and divided. Now with a way to reverse the damage, the Avengers and their allies must assemble once more and learn to put differences aside in order to work together and set things right. Along the way, the Avengers realize that sacrifices must be made as they prepare for the ultimate final showdown with Thanos, which will result in the heroes fighting the biggest battle they have ever faced.
@@ -14,12 +20,6 @@
             <div class="movie_info_actors">
                 <span class="cast">Cast:</span> Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth, Scarlett Johansson, Paul Rudd, Benedict Cumberbatch, Chadwick Boseman	
                 Brie Larson, Tom Holland, Karen Gillan, Zoe Saldana, Evangeline Lilly, Tessa Thompson, Rene Russo, Elizabeth Olsen Sebastian Stan, Tom Hiddleston
-            </div>
-            <div class="movie_info_options flex">
-                <div class="rating">Average Potato Rating: ★★★★☆</div>
-                <div class="add-movie">
-                    <input type="submit" name="faddmovie" class="add-movie" value="+ My Watchlist"/>
-                </div>
             </div>
         </div>
     </div>

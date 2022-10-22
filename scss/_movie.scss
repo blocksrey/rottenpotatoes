@@ -4,19 +4,47 @@
     gap: 2rem;
     padding: 0 4rem;
 
+    #moviephp-title {
+        padding-top: 2rem;
+    }
+
+    .moviephp-options {
+        .rating {
+            color: $ivory;
+            font-size: 1.1rem;
+            margin-right: 5rem;
+            text-transform: uppercase;
+        }
+
+        .add-movie {
+            font-weight: $bold;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+
+            input {
+                color: $ivory;
+                border-radius: 1.5rem;
+                background-color: $blue;
+                border: 2px solid $blue;
+                padding: 0.8rem 1.4rem;
+                
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
     .movie {
-        margin: 2rem 0;
-        display: flex;
         width: 100%;
         gap: 6rem;
+        margin-bottom: 2rem;
 
         &_poster {
-            border-radius: 1.5rem;
             flex: 1;
             
             img {
-                height: 90%;
-                width: 100%;
+                width: 90%;
                 border-radius: 1.5rem;
             }
         }
@@ -25,13 +53,9 @@
             flex-wrap: wrap;
             flex-direction: column;
             gap: 2rem;
-            flex: 1.8;
+            flex: 1.9;
 
             & > div { color: $ivory; }
-
-            &_title {
-                font-size: 1.9rem;
-            }
 
             &_desc, &_actors {
                 line-height: 1.5rem;
@@ -54,33 +78,6 @@
                     font-weight: $extraBold;
                     color: $ivory;
                     font-size: 1rem;
-                }
-            }
-
-            &_options {
-                .rating {
-                    color: $ivory;
-                    font-size: 1.1rem;
-                    margin-right: 5rem;
-                    text-transform: uppercase;
-                }
-
-                .add-movie {
-                    font-weight: $bold;
-                    cursor: pointer;
-                    transition: all 0.2s ease-in-out;
-
-                    input {
-                        color: $ivory;
-                        border-radius: 1.5rem;
-                        background-color: $blue;
-                        border: 2px solid $blue;
-                        padding: 0.8rem 1.4rem;
-                        
-                        &:hover {
-                            background-color: transparent;
-                        }
-                    }
                 }
             }
         }
