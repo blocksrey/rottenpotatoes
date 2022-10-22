@@ -532,25 +532,50 @@ a {
   padding: 0 4rem;
 }
 
+.container #moviephp-title {
+  padding-top: 2rem;
+}
+
+.container .moviephp-options .rating {
+  color: #F2F1E8;
+  font-size: 1.1rem;
+  margin-right: 5rem;
+  text-transform: uppercase;
+}
+
+.container .moviephp-options .add-movie {
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.container .moviephp-options .add-movie input {
+  color: #F2F1E8;
+  border-radius: 1.5rem;
+  background-color: #0D698B;
+  border: 2px solid #0D698B;
+  padding: 0.8rem 1.4rem;
+}
+
+.container .moviephp-options .add-movie input:hover {
+  background-color: transparent;
+}
+
 .container .movie {
-  margin: 2rem 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   width: 100%;
   gap: 6rem;
+  margin-bottom: 2rem;
 }
 
 .container .movie_poster {
-  border-radius: 1.5rem;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
 .container .movie_poster img {
-  height: 90%;
-  width: 100%;
+  width: 90%;
   border-radius: 1.5rem;
 }
 
@@ -562,17 +587,13 @@ a {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 2rem;
-  -webkit-box-flex: 1.8;
-      -ms-flex: 1.8;
-          flex: 1.8;
+  -webkit-box-flex: 1.9;
+      -ms-flex: 1.9;
+          flex: 1.9;
 }
 
 .container .movie_info > div {
   color: #F2F1E8;
-}
-
-.container .movie_info_title {
-  font-size: 1.9rem;
 }
 
 .container .movie_info_desc, .container .movie_info_actors {
@@ -596,32 +617,6 @@ a {
   font-weight: 800;
   color: #F2F1E8;
   font-size: 1rem;
-}
-
-.container .movie_info_options .rating {
-  color: #F2F1E8;
-  font-size: 1.1rem;
-  margin-right: 5rem;
-  text-transform: uppercase;
-}
-
-.container .movie_info_options .add-movie {
-  font-weight: 600;
-  cursor: pointer;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.container .movie_info_options .add-movie input {
-  color: #F2F1E8;
-  border-radius: 1.5rem;
-  background-color: #0D698B;
-  border: 2px solid #0D698B;
-  padding: 0.8rem 1.4rem;
-}
-
-.container .movie_info_options .add-movie input:hover {
-  background-color: transparent;
 }
 
 .container .review_title {
