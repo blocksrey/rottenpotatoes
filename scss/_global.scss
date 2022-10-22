@@ -24,7 +24,24 @@ a {
 	align-items: center;
 }
 
-.hidden {
-	display: none;
+.hidden { display: none; }
+
+.small-label, .label {
+	color: $ivory; 
+	font-weight: $bold;
+	text-transform: uppercase;
 }
+
+.small-label { font-size: 1.5rem; }
+
+.label { font-size: 2rem; }
+
+.error {
+	font-size: 1rem;
+	color: $red;
+	font-weight: $bold;
+}
+
+
+
 
