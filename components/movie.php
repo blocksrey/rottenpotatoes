@@ -15,11 +15,11 @@
         <div class="movie_info flex">
             <div class="movie_info_desc">
                 Reuniting in the present, the Avengers place the Stones into a gauntlet that Stark, Banner, and Rocket had built. Having the most resistance to their radiation, Banner wields the gauntlet and reverses Thanos's disintegrations. Meanwhile, 2014-Nebula, impersonating her future self, uses the time machine to transport 2014-Thanos and his warship to the present, which he then uses to destroy the Avengers Compound.
-                <br><br>After half of all life is snapped away by Thanos, the Avengers are left scattered and divided. Now with a way to reverse the damage, the Avengers and their allies must assemble once more and learn to put differences aside in order to work together and set things right. Along the way, the Avengers realize that sacrifices must be made as they prepare for the ultimate final showdown with Thanos, which will result in the heroes fighting the biggest battle they have ever faced.
+                <br><br>After half of all life is snapped away by Thanos, the Avengers are left scattered and divided. Now with a way to reverse the damage, the Avengers and their allies must assemble once more and learn to put differences aside in order to work together and set things right. Along the way, the Avengers realize that sacrifices.
             </div>
             <div class="movie_info_actors">
-                <span class="cast">Cast:</span> Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth, Scarlett Johansson, Paul Rudd, Benedict Cumberbatch, Chadwick Boseman	
-                Brie Larson, Tom Holland, Karen Gillan, Zoe Saldana, Evangeline Lilly, Tessa Thompson, Rene Russo, Elizabeth Olsen Sebastian Stan, Tom Hiddleston
+                <span class="cast">Cast:</span> Robert Downey Jr. as Iron Man, Chris Evans as Captain America, Mark Ruffalo as Hulk, Chris Hemsworth as Thor, Scarlett Johansson as Black Widow, Paul Rudd as Ant Man, Benedict Cumberbatch as Doctor Strange, Chadwick Boseman	as Black Panther,
+                Brie Larson as Super Woman, Tom Holland as Spider Man, Zoe Saldana, Evangeline Lilly, Tessa Thompson, Rene Russo, Elizabeth Olsen as Scarlett Witch, Sebastian Stan, Tom Hiddleston as Loki
             </div>
         </div>
     </div>

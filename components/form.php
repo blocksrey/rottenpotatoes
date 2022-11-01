@@ -14,16 +14,17 @@
         $stmt->close();
 
         if(!$result) { 
-            $login_error = "Please enter the correct username or password";
+            $login_error = "Please enter the correct username or password.";
         } else {
             $_SESSION['username'] = $username;
-            $_SESSION['password']= $password;
+            $_SESSION['password'] = $password;
+            $_SESSION['status'] = 1;
             header("location: home.php");
         }
     } else if(isset($_POST['submit_signup'])) {
         $fname = mysqli_real_escape_string($conn, $_POST['username']);	
         $email = mysqli_real_escape_string($conn, $_POST['email']);	
-        $passwd = mysqli_real_escape_string($conn, hash('sha512', $_POST['pwd']));	
+        $passwd = mysqli_real_escape_string($conn, hash('SHA512', $_POST['pwd']));
 
         $result1 = "SELECT COUNT(*) FROM users WHERE email=?";
         $stmt1 = $conn->prepare($result1);
@@ -49,15 +50,16 @@
             $passwd_error = "Password must be minimum of 6 characters.";
         } else {      
             if($count1 > 0) {
-                echo "'Email already associated with another account. Please try with different one.";
+                $email_login_error = "Email already associated with another account. Please try with a different one.";
             } else if ($count2 > 0) {
-                echo "'Username already associated with another account. Please try with different one.";
+                $username_login_error = "Username already associated with another account. Please try with a different one.";
             } else { 
-                $sql = "INSERT INTO users(username, email, password) VALUES(?,?,?)";
+                $sql = "INSERT INTO users(username, email, password) VALUES (?,?,?)";
                 $stmti = $conn->prepare($sql);
                 $stmti->bind_param('sss', $fname, $email, $passwd);
                 $stmti->execute();
                 $stmti->close();
+                echo "<script>alert('User registration successful.');</script>";
                 header("location: welcome.php");
             }
         }
