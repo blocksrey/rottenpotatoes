@@ -9,7 +9,7 @@
         <a href="#" class="categ_btn">Drama</a>
     </div>
     <div class="list-box_half flex">
-        <div class="label" id="discover">Discover movies by Category</div>
+        <div class="label">Discover movies by Category</div>
         <div class="list flex">
             <div class="movie">
                 <div class="movie_poster">
