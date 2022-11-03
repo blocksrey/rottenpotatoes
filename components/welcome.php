@@ -8,6 +8,6 @@
 	</div>
 	<div class ='homebutton'>
 		<a href='home.php' class='hollow red'>Go home</a>
-		<a href='login.php' class='hollow blue'>Sign in</a>
+		<a href='login.php' class='hollow blue'>Login</a>
 	</div>
 </div>

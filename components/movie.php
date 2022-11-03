@@ -1,4 +1,5 @@
-<?php @include "header.php" ?>
+<?php @include 'shared.php' ?>
+<?php @include "topbar.php" ?>
 
 <div class="container flex">
     <div class="label" id="moviephp-title">Avengers: End Game</div>

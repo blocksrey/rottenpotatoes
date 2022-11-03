@@ -1,4 +1,5 @@
-<?php @include "header.php"; ?>
+<?php @include "shared.php"; ?>
+<?php @include "topbar.php"; ?>
 
 <div class="list-box_half flex">
     <p class="label">Search Results</p>

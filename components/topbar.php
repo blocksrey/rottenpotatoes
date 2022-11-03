@@ -5,6 +5,6 @@
 		<a href=watchlist.php class='menu_button flex menu_btn'>Watchlist</a>
 		<a href=ranking.php class='menu_button flex menu_btn'>Ranking</a>
 		<a href=categories.php class='menu_button flex menu_btn'>Categories</a>
-		<a href=login.php class='menu_button flex menu_log'in>Sign in</a>
+		<a href=login.php class='menu_button flex menu_log'in>Login</a>
 	</div>
 </div>
