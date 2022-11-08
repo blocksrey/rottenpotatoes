@@ -6,7 +6,7 @@
 }
 
 html, body {
-	max-width: 100%;
+    max-width: 100%;
 	overflow-x: hidden;
 	background-color: $darkBlue;
 	font-family: $fontFamily;
@@ -27,7 +27,7 @@ a {
 .hidden { display: none; }
 
 .small-label, .label {
-	color: $ivory;
+	color: $ivory; 
 	font-weight: $bold;
 	text-transform: uppercase;
 }
@@ -41,3 +41,16 @@ a {
 	color: $red;
 	font-weight: $bold;
 }
+
+.footer {
+	margin: 3rem 0 2rem 0;
+
+	&_text {
+		color: $ivory;
+		font-size: 0.8rem;
+	}
+}
+
+
+
+

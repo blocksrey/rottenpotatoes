@@ -1,113 +1,71 @@
-<?php @include 'shared.php' ?>
+<?php @include "header.php"?>
+<?php require_once "connection.php"?>
 
-<div class='list-box_half flex top5-ranking'>
-	<p class='label'>Top 5 Best Rated Movies</p>
-	<div class='top5-rated flex'>
-		<div class='movie'>
-			<div class='movie_poster'>
-				<a href=#><img class='mov' src='http://www.graphicdesignjunction.com/wp-content/uploads/2012/03/large/movies-poster-13.jpg'></a>
-			</div>
-			<div class='movie_info flex'>
-				<div class='movie_info_text flex'>
-					<div class='title'>Wanderlust</div><br>
-					<div class='rating'>Rating: ★★★☆☆</div>
-				</div>
-				<div class='movie_info_potato'>
-					<a href=#><img class='like' src='../media/potato-add.png'></a>
-				</div>
-			</div>
-		</div>
-		<div class='movie'>
-			<div class='movie_poster'>
-				<a href=#><img class='mov' src='http://cafmp.com/wp-content/uploads/2016/04/Avatar.jpg'></a>
-			</div>
-			<div class='movie_info flex'>
-				<div class='movie_info_text flex'>
-					<div class='title'>Avatar</div><br>
-					<div class='rating'>Rating: ★★★☆☆</div>
-				</div>
-				<div class='movie_info_potato'>
-					<a href=#><img class='like' src='../media/potato-add.png'></a>
-				</div>
-			</div>
-		</div>
-		<div class='movie'>
-			<div class='movie_poster'>
-				<a href=#><img class='mov' src='https://mir-s3-cdn-cf.behance.net/project_modules/1400/eadee997221175.5ec00e9150a29.png'></a>
-			</div>
-			<div class='movie_info flex'>
-				<div class='movie_info_text flex'>
-					<div class='title'>Joker</div><br>
-					<div class='rating'>Rating: ★★★☆☆</div>
-				</div>
-				<div class='movie_info_potato'>
-					<a href=#><img class='like' src='../media/potato-add.png'></a>
-				</div>
-			</div>
-		</div>
-		<div class='movie'>
-			<div class='movie_poster'></div>
-			<div class='movie_info flex'>Movie Info</div>
-		</div>
-		<div class='movie'>
-			<div class='movie_poster'></div>
-			<div class='movie_info flex'>Movie Info</div>
-		</div>
-	</div>
+<div class="list-box_half flex top5-ranking">
+    <p class="label">Top 5 Best Rated Movies</p>
+    <div class="top5-rated flex">
+        <?php
+            $sql = "SELECT mr.movie_id, title, poster, AVG(rating) FROM movie_rating as mr JOIN movie as m ON mr.movie_id = m.movie_id GROUP BY mr.movie_id ORDER BY AVG(rating) DESC LIMIT 5";
+            $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                ?>
+                <div class="movie">
+                    <div class="movie_poster">
+                        <a href="movie.php?id=<?=$row["movie_id"];?>" id="<?php echo $row["movie_id"];?>" onclick="movieInfo(this);"><img class="mov" src="<?php echo $row["poster"];?>"></a>
+                    </div>
+                    <div class="movie_info flex">
+                        <div class="movie_info_text flex">
+                            <div class="title"><?php echo $row["title"];?></div>
+                            <div class="rating">Rating: 
+                                <?php 
+                                    for ($x = 1; $x <= floor($row["AVG(rating)"]); $x++) echo "★";
+                                    for ($y = 1; $y <= 5-floor($row["AVG(rating)"]); $y++) echo "☆";
+                                ?>
+                            </div>
+                        </div>
+                        <div class="movie_info_potato">
+                            <a href=#><img class="like" src="../images/potato-add.png"></a>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                    }
+                }
+        ?>
+    </div>
 </div>
-<div class='list-box_half flex top5-ranking'>
-	<p class='label'>Top 5 Most Reviewed Movies</p>
-	<div class='top5-reviewed flex'>
-		<div class='movie'>
-			<div class='movie_poster'>
-				<a href=#><img class='mov' src='https://image.tmdb.org/t/p/original/el0zWThBd9VmZOmZ1BwbyUq5XLg.jpg'></a>
-			</div>
-			<div class='movie_info flex'>
-				<div class='movie_info_text flex'>
-					<div class='title'>Minions: Go Back to the Beginning</div><br>
-					<div class='rating'>Rating: ★★★☆☆</div>
-				</div>
-				<div class='movie_info_potato'>
-					<a href=#><img class='like' src='../media/potato-add.png'></a>
-				</div>
-			</div>
-		</div>
-		<div class='movie'>
-			<div class='movie_poster'>
-				<a href=#><img class='mov' src='https://image.tmdb.org/t/p/original/jEquRxbI1o7b7xmCoW6agSK1hM5.jpg'></a>
-			</div>
-			<div class='movie_info flex'>
-				<div class='movie_info_text flex'>
-					<div class='title'>Top Gun I</div><br>
-					<div class='rating'>Rating: ★★★☆☆</div>
-				</div>
-				<div class='movie_info_potato'>
-					<a href=#><img class='like' src='../media/potato-add.png'></a>
-				</div>
-			</div>
-		</div>
-		<div class='movie'>
-			<div class='movie_poster'>
-				<a href=#><img class='mov' src='https://picfiles.alphacoders.com/349/349732.jpg'></a>
-			</div>
-			<div class='movie_info flex'>
-				<div class='movie_info_text flex'>
-					<div class='title'>The Devil Wears Prada</div><br>
-					<div class='rating'>Rating: ★★★☆☆</div>
-				</div>
-				<div class='movie_info_potato'>
-					<a href=#><img class='like' src='../media/potato-add.png'></a>
-				</div>
-			</div>
-		</div>
-		<div class='movie'>
-			<div class='movie_poster'></div>
-			<div class='movie_info flex'>Movie Info</div>
-		</div>
-		<div class='movie'>
-			<div class='movie_poster'></div>
-			<div class='movie_info flex'>Movie Info</div>
-		</div>
-	</div>
+<div class="list-box_half flex top5-ranking">
+    <p class="label">Top 5 Most Reviewed Movies</p>
+    <div class="top5-reviewed flex">
+        <?php
+            $sql = "SELECT mr.movie_id, title, poster, COUNT(review) FROM movie_review as mr JOIN movie as m ON mr.movie_id = m.movie_id GROUP BY mr.movie_id ORDER BY COUNT(review) DESC LIMIT 5";
+            $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+        ?>
+            <div class="movie">
+                <div class="movie_poster">
+                    <a href="movie.php?id=<?=$row["movie_id"];?>"><img class="mov" src="<?php echo $row["poster"];?>"></a>
+                </div>
+                <div class="movie_info flex">
+                    <div class="movie_info_text flex">
+                        <div class="title"><?php echo $row["title"];?></div>
+                        <div class="rating">Reviews: <?php echo $row["COUNT(review)"];?></div>
+                    </div>
+                    <div class="movie_info_potato">
+                        <a href=#><img class="like" src="../images/potato-add.png"></a>
+                    </div>
+                </div>
+            </div>
+        <?php } } ?>
+    </div>
 </div>
+
+<div class="footer flex">
+    <p class="footer_text">Copyright © Rotten Potatoes. Developed by Daniela, Yoon Soo, and Jeffrey.</p>
+</div>
+
+<?php mysqli_close($conn); ?>
+
 

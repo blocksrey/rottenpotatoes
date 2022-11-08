@@ -2,14 +2,14 @@
     require_once "connection.php"; 
 
     if(isset($_POST['submit_login'])) {
-        $fname = mysqli_real_escape_string($conn, $_POST['username']);	
-        $passwd = mysqli_real_escape_string($conn, hash('sha512', $_POST['pwd']));	
+        $fname = $_POST['username'];	
+        $passwd = hash('sha512', $_POST['pwd']);	
 
-        $sql = "SELECT username,password FROM users WHERE username=? AND password=?";
+        $sql = "SELECT user_id, username, password FROM users WHERE username=? AND password=?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('ss', $fname, $passwd);
         $stmt->execute();
-        $stmt->bind_result($username, $password);
+        $stmt->bind_result($user_id, $username, $password);
         $result = $stmt->fetch();
         $stmt->close();
 
@@ -18,13 +18,21 @@
         } else {
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
+            $_SESSION['user_id'] = $user_id;
             $_SESSION['status'] = 1;
+
+            $sql = "UPDATE users SET status = TRUE WHERE username=?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param('s', $fname);
+            $stmt->execute();
+            $stmt->close();
+
             header("location: home.php");
         }
     } else if(isset($_POST['submit_signup'])) {
-        $fname = mysqli_real_escape_string($conn, $_POST['username']);	
-        $email = mysqli_real_escape_string($conn, $_POST['email']);	
-        $passwd = mysqli_real_escape_string($conn, hash('SHA512', $_POST['pwd']));
+        $fname = $_POST['username'];	
+        $email = $_POST['email'];	
+        $passwd = hash('SHA512', $_POST['pwd']);
 
         $result1 = "SELECT COUNT(*) FROM users WHERE email=?";
         $stmt1 = $conn->prepare($result1);
@@ -50,16 +58,15 @@
             $passwd_error = "Password must be minimum of 6 characters.";
         } else {      
             if($count1 > 0) {
-                $email_login_error = "Email already associated with another account. Please try with a different one.";
+                $email_login_error = "Email already in use. Please try with a different one.";
             } else if ($count2 > 0) {
-                $username_login_error = "Username already associated with another account. Please try with a different one.";
+                $username_login_error = "Username already in use. Please try with a different one.";
             } else { 
                 $sql = "INSERT INTO users(username, email, password) VALUES (?,?,?)";
                 $stmti = $conn->prepare($sql);
                 $stmti->bind_param('sss', $fname, $email, $passwd);
                 $stmti->execute();
                 $stmti->close();
-                echo "<script>alert('User registration successful.');</script>";
                 header("location: welcome.php");
             }
         }
