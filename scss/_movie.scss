@@ -4,19 +4,46 @@
     gap: 2rem;
     padding: 0 4rem;
 
+    #moviephp-title {
+        padding-top: 2rem;
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .moviephp-options {
+        .rating {
+            color: $ivory;
+            font-size: 1.25rem;
+            margin-right: 5rem;
+            text-transform: uppercase;
+            font-weight: $bold;
+        }
+
+        .add-movie {
+            &_btns {
+                font-weight: $bold;
+                gap: 2rem;
+
+                .wl-wdl-wrap {
+                    gap: 2rem;
+                    .big {
+                        padding: 0.6rem 1rem;
+                    }
+                }
+            }
+        }
+    }
+
     .movie {
-        margin: 2rem 0;
-        display: flex;
         width: 100%;
         gap: 6rem;
+        margin-bottom: 2rem;
 
         &_poster {
-            border-radius: 1.5rem;
             flex: 1;
             
             img {
-                height: 90%;
-                width: 100%;
+                width: 90%;
                 border-radius: 1.5rem;
             }
         }
@@ -25,53 +52,39 @@
             flex-wrap: wrap;
             flex-direction: column;
             gap: 2rem;
-            flex: 1.8;
+            flex: 1.9;
 
             & > div { color: $ivory; }
 
-            &_title {
-                font-size: 1.9rem;
-            }
-
-            &_desc {
+            &_desc, &_actors {
                 line-height: 1.5rem;
                 font-size: 1rem;
                 text-align: justify;
-                border: 2px solid rgba(212, 212, 212, 0.15);
                 border-radius: 1.5rem;
+            }
+
+            &_desc {
+                border: 2px solid rgba(212, 212, 212, 0.15);
+                //border: 1px solid $red;
                 padding: 3rem;
             }
 
-            &_options {
-                .rating {
+            &_actors {
+                border: 2px solid rgba(212, 212, 212, 0.15);
+                padding: 1.5rem;
+
+                .cast {
+                    font-weight: $extraBold;
                     color: $ivory;
-                    font-size: 1.1rem;
-                    margin-right: 5rem;
-                    text-transform: uppercase;
-                }
-
-                .add-movie {
-                    font-weight: $bold;
-                    cursor: pointer;
-                    transition: all 0.2s ease-in-out;
-
-                    input {
-                        color: $ivory;
-                        border-radius: 1.5rem;
-                        background-color: $blue;
-                        border: 2px solid $blue;
-                        padding: 0.8rem 1.4rem;
-                        
-                        &:hover {
-                            background-color: transparent;
-                        }
-                    }
+                    font-size: 1rem;
                 }
             }
         }
     }
 
     .review {
+        width: 100%;
+
         &_title {
             color: $ivory;
             font-size: 1.6rem;
@@ -85,6 +98,46 @@
             background-color: rgba(212, 212, 212, 0.15);
             padding: 2rem;
             border-radius: 1.5rem;
+
+            .review-not-loggedin {
+                flex-direction: column;
+                gap: 1rem;
+
+                .message {
+                    color: $ivory;
+                    font-size: 1.3rem;
+                }
+            }
+
+            .top-info {
+                justify-content: space-between;
+            }
+
+            .my-review {
+                color: $ivory;
+                margin-bottom: 1rem;
+            }
+
+            .right {
+                flex-direction: row;
+                gap: 1rem;
+
+                .edit {   
+                    padding: 0 1rem;
+                    align-self: flex-start;
+                    border: 1px solid $red;
+                    background-color: transparent;
+                    border-radius: 1.5rem;
+                    cursor: pointer;
+                    font-weight: $bold;
+                    color: $ivory;
+                    transition: all 0.2s ease-in-out;
+
+                    &:hover {
+                        background-color: $red;
+                    }
+                }
+            }
 
             .username {
                 color: $ivory;
@@ -117,8 +170,16 @@
                 }
 
                 &_rate {
-                    input {
-                        background-color: transparent;
+                    &_label {
+                        font-size: 1rem;
+                        color: $ivory;
+                        font-weight: $bold;
+                    }
+
+                    &_box {
+                        margin-left: 0.5rem;
+                        border-radius: 1.5rem;
+                        padding: 0.2rem 0.4rem;
                     }
                 }
 
@@ -156,14 +217,6 @@
                         font-weight: $bold;
                         font-size: 1rem; 
                     }
-
-                    /*&_username {
-
-                    }
-
-                    &_rating {
-             
-                    }*/
                 }
 
                 .text {

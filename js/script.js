@@ -1,40 +1,12 @@
-// Localize scope of functions for performance
-let print = console.log
-
-// Format buttons
-let buttons = document.querySelectorAll('button')
-for (let i = buttons.length; i--;) buttons[i].innerHTML = buttons[i].id
-
-// Format inputs
-let inputs = document.querySelectorAll('input')
-for (let i = inputs.length; i--;) inputs[i].placeholder = inputs[i].id
-
-let handleSearch = query => location.replace('./results.htm#' + query)
-
-let Search = document.querySelector('#Search')
-Search.onkeydown = info => { if (info.keyCode == 13) handleSearch(Search.value) }
+function categRate(id, category) { document.forms.modalCateg.action = "mymovies.php?id="+id+"&url=categories.php?category="+category.value; }
+function listsRate(id, string) { document.forms.modalList.action = "mymovies.php?id="+id+"&url=watchlist.php#"+string; }
+function ranksRate(id, string) { document.forms.modalRank.action = "mymovies.php?id="+id+"&url=ranking.php#"+string; }
+function resultsRate(id, string) { document.forms.modalResult.action = "mymovies.php?id="+id+"&url=results.php?search="+string; }
+function homeRate(id, string) { document.forms.modalHome.action = "mymovies.php?id="+id+"&url=home.php#"+string; }
 
 
-onhashchange = info => { print('Begin search query on: ' + Search.value) }
 
-function toggleDisplay() {
-    var signin = document.getElementById("signin");
-    signin.classList.toggle("hide");
-    var signup = document.getElementById("signup");
-    signup.classList.toggle("hide");
-};
 
-/*var keys = document.getElementsByClassName("movie");
-
-for(var i=0; i<keys.length; i++) {
-    keys[i].addEventListener("click", keyClick);
-}
-
-function keyClick(e) {
-  console.log("this.id = " + this.id);
-  console.log("e.currentTarget.id = " + e.currentTarget.id);
-  console.log("e.target.id = " + e.target.id);
-}*/
 
 
 

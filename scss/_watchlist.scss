@@ -2,7 +2,7 @@
     margin: 2rem 3.4rem;
     flex-direction: column;
 
-    .showall {
+    .showstats {
         width: 100%;
         justify-content: flex-end;
 
@@ -13,7 +13,6 @@
             text-align: center;
             align-self: flex-end;
             transition: all 0.15s ease-in-out;
-            cursor: pointer;
             color: $ivory;
 
             &:hover { 
@@ -34,7 +33,7 @@
             display: none;
         }
 
-        .mylist, .top5 { padding-top: 0.7rem; }
+        .mylist, .top5 { padding-top: 1.1rem; }
 
         .movie {
             display: grid;
@@ -49,7 +48,7 @@
                 transition: all 0.5s ease-in-out;
 
                 .mov { 
-                    transform: scale(105%, 105%) translate(0, -6.7rem);
+                    transform: scale(105%, 105%) translate(0, -7rem);
                 }
             }
 
@@ -70,25 +69,31 @@
             &_info {
                 text-align: center;
                 width: 120%;
-                background-color: rgba(242, 241, 232, 0.7);
+                background-color: rgba(212, 212, 212, 0.15);
                 border-bottom-left-radius: 1.5rem;
                 border-bottom-right-radius: 1.5rem;
                 flex-direction: row;
+                justify-content: space-evenly;
 
                 &_text {
                     font-weight: $bold;
                     flex-direction: column;
-                    padding: 1rem;
+                    padding-left: 1rem;
 
                     .title {
                         font-size: 1.1rem;
-                        color: $darkBlue;
+                        color: $ivory;
+                    }
+
+                    .rating {
+                        color: $ivory;
+                        margin-top: 1rem; 
                     }
                 }
 
-                &_potato {
-                    //margin-left: 2rem;
-                    padding: 1rem;
+                &_btns {
+                    padding-right: 1rem;
+                    flex-direction: column;
                 }
             }
         }

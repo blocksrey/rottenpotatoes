@@ -24,13 +24,6 @@
             margin-bottom: 1rem;
             border-radius: 1.5rem;
 
-            .label {
-                font-size: 1.5rem;
-                color: $ivory; 
-                font-weight: $bold;
-                text-transform: uppercase;
-            }
-
             .big-movie {
                 flex-direction: column;
                 position: relative;
@@ -38,10 +31,11 @@
                 cursor: pointer;
 
                 &_poster {
-                    width: 70%;
+                    width: 80%;
                     height: 30rem;
 
                     img {
+                        object-fit: cover;
                         height: 100%;
                         width: 100%;
                         border-radius: 1.5rem;
@@ -49,7 +43,7 @@
                 }
 
                 &_info {
-                    width: 70%;
+                    width: 80%;
                     height: 100%;
                     position: absolute;
                     flex-direction: column;
@@ -81,12 +75,4 @@
     .home-list-label {
         padding-bottom: 1rem;
     }
-}
-
-.like {
-    width: 3.2rem;
-    height: 3.2rem;
-    //top: -20rem;
-   // position: relative;
-    //display: none;
 }
