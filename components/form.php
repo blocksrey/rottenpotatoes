@@ -17,9 +17,7 @@
             $login_error = "Please enter the correct username or password.";
         } else {
             $_SESSION['username'] = $username;
-            $_SESSION['password'] = $password;
             $_SESSION['user_id'] = $user_id;
-            $_SESSION['status'] = 1;
 
             $sql = "UPDATE users SET status = TRUE WHERE username=?";
             $stmt = $conn->prepare($sql);
@@ -67,6 +65,7 @@
                 $stmti->bind_param('sss', $fname, $email, $passwd);
                 $stmti->execute();
                 $stmti->close();
+
                 header("location: welcome.php");
             }
         }

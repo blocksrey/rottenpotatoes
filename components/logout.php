@@ -9,10 +9,9 @@ $stmt->execute();
 $stmt->close();
 
 unset($_SESSION['username']);
-unset($_SESSION['password']);
 unset($_SESSION['user_id']);
-unset($_SESSION['status']);
 session_destroy();
 
 header("location: home.php");
+mysqli_close($conn); 
 ?>

@@ -6,31 +6,29 @@
 
     #moviephp-title {
         padding-top: 2rem;
+        font-size: 3rem;
+        text-align: center;
     }
 
     .moviephp-options {
         .rating {
             color: $ivory;
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             margin-right: 5rem;
             text-transform: uppercase;
+            font-weight: $bold;
         }
 
         .add-movie {
-            font-weight: $bold;
-            cursor: pointer;
-            gap: 3rem;
-            transition: all 0.2s ease-in-out;
+            &_btns {
+                font-weight: $bold;
+                gap: 2rem;
 
-            input {
-                color: $ivory;
-                border-radius: 1.5rem;
-                background-color: $blue;
-                border: 2px solid $blue;
-                padding: 0.8rem 1.4rem;
-                
-                &:hover {
-                    background-color: transparent;
+                .wl-wdl-wrap {
+                    gap: 2rem;
+                    .big {
+                        padding: 0.6rem 1rem;
+                    }
                 }
             }
         }
@@ -120,18 +118,24 @@
                 margin-bottom: 1rem;
             }
 
-            .edit {   
-                padding: 0.5rem 1rem;
-                border: 1px solid $red;
-                background-color: transparent;
-                border-radius: 1.5rem;
-                cursor: pointer;
-                font-weight: $bold;
-                color: $ivory;
-                transition: all 0.2s ease-in-out;
+            .right {
+                flex-direction: row;
+                gap: 1rem;
 
-                &:hover {
-                    background-color: $red;
+                .edit {   
+                    padding: 0 1rem;
+                    align-self: flex-start;
+                    border: 1px solid $red;
+                    background-color: transparent;
+                    border-radius: 1.5rem;
+                    cursor: pointer;
+                    font-weight: $bold;
+                    color: $ivory;
+                    transition: all 0.2s ease-in-out;
+
+                    &:hover {
+                        background-color: $red;
+                    }
                 }
             }
 
@@ -174,6 +178,8 @@
 
                     &_box {
                         margin-left: 0.5rem;
+                        border-radius: 1.5rem;
+                        padding: 0.2rem 0.4rem;
                     }
                 }
 
@@ -211,14 +217,6 @@
                         font-weight: $bold;
                         font-size: 1rem; 
                     }
-
-                    /*&_username {
-
-                    }
-
-                    &_rating {
-             
-                    }*/
                 }
 
                 .text {
