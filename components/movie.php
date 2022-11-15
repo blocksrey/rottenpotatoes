@@ -275,12 +275,12 @@
                 <fieldset class="modal-body flex">
                     <span class="star-cb-group flex">
                         <?php for($i=1; $i<=5; $i++) { ?>
-                            <input type="radio" name="rating" id="r<?=$i?>" value="<?=$i?>" <?php if($starBtnVal==$i){echo "checked='checked'";}?>/><label for="r<?=$i?>"><?=$i?></label>
+                            <input type="radio" name="rating" id="r<?=$i?>" value="<?=$i?>" <?php if($starBtnVal==$i){echo "checked='checked'";}?> required/><label for="r<?=$i?>"><?=$i?></label>
                         <?php } ?>                          
                     </span>
                 </fieldset>
-                <div class="modal-footer">
-                    <?php if(!empty($starBtnVal)) { echo "<input type='submit' name='rate_del' class='modal-footer_btn delete' value='Delete'/>"; }?>
+                <div class="modal-footer flex">
+                    <?php if(!empty($starBtnVal)) { echo"<input type='submit' name='del_rate' class='modal-footer_btn delete' value='Delete'/>";}?>
                     <input type="submit" name="rate_submit" class="modal-footer_btn" value="Submit"/>
                 </div>
             </form>

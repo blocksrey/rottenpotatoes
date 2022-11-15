@@ -53,26 +53,19 @@ a, input, button {
 .del {
     border: 2px solid $red;
     transition: all 0.35s ease-in-out;
-
-    &:hover {
-		background-color: $red;
-    }
+    &:hover { background-color: $red; }
 }
 
 .add {
     border: 2px solid $blue;
     transition: all 0.35s ease-in-out;
-
-    &:hover {
-		background-color: $blue;
-    }
+    &:hover { background-color: $blue; }
 }
 
 .rate-btn {
 	border: 2px solid rgba(252, 226, 77, 0.942);
 	color: rgba(252, 226, 77, 0.942);
 	transition: all 0.35s ease-in-out;
-
 	&:hover {
 		background-color: rgba(252, 226, 77, 0.942);
 		color: $darkBlue;
@@ -86,7 +79,6 @@ a, input, button {
 
 .footer {
 	margin: 3rem 0 2rem 0;
-
 	&_text {
 		color: $ivory;
 		font-size: 0.8rem;
@@ -110,6 +102,7 @@ a, input, button {
   }
   
   .modal-dialog {
+	transition: top .25s ease;
 	padding: 0.5rem;
 	background: $ivory;
 	border-radius: 1rem;
@@ -124,37 +117,27 @@ a, input, button {
   .modal-body {
 	.star-cb-group {
 		gap: 1rem;
-
 		label { font-size: 1.4rem; }
-
-		input[type='radio'] { 
-			transform: scale(1.4); 
-		}
+		input[type='radio'] { transform: scale(1.4); }
 	}
   }
   
   .modal-header,
-  .modal-footer {
-	padding: 1.3rem 2rem;
-  }
-  
+  .modal-footer { padding: 1.3rem 2rem; }
+   
   .modal-header {
 	justify-content: space-between;
-
-	h2, a {
-	  font-size: 1rem;
-	}
-
+	h2, a { font-size: 1rem; }
 	.btn-close{
 		color: $darkBlue;
 		font-size: 2rem;
-	  }
+	}
 	
   }
   
   .modal-footer {
 	text-align: right;
-
+	justify-content: flex-end;
 	&_btn {
 		background-color: $red;
 		border: 2px solid $red;
@@ -163,7 +146,6 @@ a, input, button {
 		color: $ivory;
 		font-weight: $bold;
 		transition: all 0.35s ease-in-out;
-
 		&:hover {
 			background-color: transparent;
 			color: $red;
@@ -176,7 +158,6 @@ a, input, button {
 	color: $red;
 	margin-right: 0.5rem;
 	transition: all 0.35s ease-in-out;
-
 	&:hover {
 		background-color: $red;
 		color: $ivory;

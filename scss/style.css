@@ -129,6 +129,8 @@ a, input, button {
 }
 
 .modal-dialog {
+  -webkit-transition: top .25s ease;
+  transition: top .25s ease;
   padding: 0.5rem;
   background: #F2F1E8;
   border-radius: 1rem;
@@ -175,6 +177,9 @@ a, input, button {
 
 .modal-footer {
   text-align: right;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .modal-footer_btn {
@@ -1003,7 +1008,7 @@ a, input, button {
   margin: 1.2rem 2rem;
 }
 
-.stats-wrapper .table-chart {
+.table-chart {
   -webkit-box-flex: 1.2;
       -ms-flex: 1.2;
           flex: 1.2;
@@ -1016,55 +1021,65 @@ a, input, button {
           align-items: flex-start;
 }
 
-.stats-wrapper .bars-chart {
+.bars-chart {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
 }
 
-.stats-wrapper .rating-ranks {
+.mov-year {
+  padding-top: 3rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.rating-ranks {
   margin-top: 2.7rem;
 }
 
-.stats-wrapper .rating-ranks h1, .stats-wrapper .rating-ranks h3 {
+.rating-ranks h1, .rating-ranks h3 {
   color: #F2F1E8;
 }
 
-.stats-wrapper .rating-ranks h3 {
+.rating-ranks h3 {
   font-size: 1.3rem;
 }
 
-.stats-wrapper .rating-ranks h1 {
+.rating-ranks h1 {
   font-size: 1.5rem;
   text-transform: uppercase;
 }
 
-.stats-wrapper .rating-ranks th {
+.rating-ranks th {
   padding: 1rem;
   border: 2px solid rgba(212, 212, 212, 0.15);
   text-transform: uppercase;
 }
 
-.stats-wrapper .rating-ranks td {
+.rating-ranks td {
   padding: 1rem;
   background-color: rgba(212, 212, 212, 0.15);
   font-size: 1.1rem;
 }
 
-.stats-wrapper .rating-ranks td, .stats-wrapper .rating-ranks th {
+.rating-ranks td, .rating-ranks th {
   color: #F2F1E8;
   border-radius: 0.5rem;
   font-weight: 600;
   text-align: center;
 }
 
-.stats-wrapper .rating-ranks .categ-td {
+.rating-ranks .categ-td {
   border: 1px solid #E34234;
   background-color: transparent;
   font-size: 1rem;
 }
 
-.stats-wrapper .rating-ranks .bars {
+.rating-ranks .bars {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1072,16 +1087,16 @@ a, input, button {
   gap: 1.5rem;
 }
 
-.stats-wrapper .rating-ranks .bars_each {
+.rating-ranks .bars_each {
   list-style-type: none;
   width: 100%;
 }
 
-.stats-wrapper .rating-ranks .bars_each .bar {
+.rating-ranks .bars_each .bar {
   height: 3rem;
 }
 
-.stats-wrapper .rating-ranks .bars_each .bar span {
+.rating-ranks .bars_each .bar span {
   height: 3rem;
   float: left;
   background: #0D698B;
@@ -1089,11 +1104,11 @@ a, input, button {
   border-top-right-radius: 1.5rem;
 }
 
-.stats-wrapper .rating-ranks .bars_each .bar .rate-num {
+.rating-ranks .bars_each .bar .rate-num {
   float: right;
 }
 
-.stats-wrapper .rating-ranks .bars_each .bar .rate-num, .stats-wrapper .rating-ranks .bars_each .bar .rate-categ {
+.rating-ranks .bars_each .bar .rate-num, .rating-ranks .bars_each .bar .rate-categ {
   color: #050533;
   font-size: 1.2rem;
   padding: 0.8rem 1rem 0 1rem;
@@ -1101,14 +1116,14 @@ a, input, button {
   background-color: transparent;
 }
 
-.stats-wrapper .rating-ranks .bars_each .bar_info {
+.rating-ranks .bars_each .bar_info {
   gap: 1rem;
   float: left;
   margin-left: 1rem;
   margin-top: 0.4rem;
 }
 
-.stats-wrapper .rating-ranks .bars_each .bar_info .rank {
+.rating-ranks .bars_each .bar_info .rank {
   font-size: 1.8rem;
 }
 /*# sourceMappingURL=style.css.map */

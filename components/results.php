@@ -33,21 +33,21 @@ if(isset($_GET['submit_search'])) {
                     </div>
                 </div>
                 <div class="movie_info_btns flex">
-                <?php if(empty($_SESSION['user_id'])) { ?>
-                    <a href="login.php" class="like rate-btn">★</a>
-                <?php } else { ?>
-                    <?php $sqli = "SELECT rating FROM movie_rating WHERE movie_id=? AND user_id=?";
-                        $stmti = $conn->prepare($sqli);
-                        $stmti->bind_param('ii', $row['movie_id'], $_SESSION['user_id']);
-                        $stmti->execute();
-                        $resulti = $stmti->get_result();
-                        $stmti->close(); ?>    
-                        <a href="#modal-one" class="like rate-btn" onclick="resultsRate(<?=$row['movie_id']?>, <?=$fsearch?>)">
-                        <?php if($resulti->num_rows > 0) { while($rowi = $resulti->fetch_assoc()) { echo $rowi['rating']; }}?> ★</a>
-                <?php } ?>
-                    <form method="POST" action="mymovies.php?id=<?=$row['movie_id']?>&url=results.php?search=<?=$_SESSION['word']?>" class="btns-form flex">
-                        <?php 
-                            $iquery = "SELECT movie_id FROM watchlist WHERE movie_id=? AND user_id=?";
+                <?php if(!empty($_SESSION['user_id'])) { 
+                    $sqli = "SELECT rating FROM movie_rating WHERE movie_id=? AND user_id=?";
+                    $stmti = $conn->prepare($sqli);
+                    $stmti->bind_param('ii', $row['movie_id'], $_SESSION['user_id']);
+                    $stmti->execute();
+                    $resulti = $stmti->get_result();
+                    $stmti->close(); 
+                    if($resulti->num_rows > 0) { 
+                        while($rowi = $resulti->fetch_assoc()) { ?>
+                    <a href="#modal-one" class="like rate-btn" onclick="resultsRate(<?=$row['movie_id']?>); <?php if(!empty($rowi['rating'])){ echo 'modalDetails('.$rowi['rating'].');'; }?>"><?=$rowi['rating']?> ★</a>
+                    <?php }} else { ?>
+                    <a href="#modal-one" class="like rate-btn" onclick="resultsRate(<?=$row['movie_id']?>)"> ★</a>
+                    <?php } ?>   
+                    <form method="POST" action="mymovies.php?id=<?=$row['movie_id']?>&url=results.php" class="btns-form flex">
+                        <?php $iquery = "SELECT movie_id FROM watchlist WHERE movie_id=? AND user_id=?";
                             $istmt = $conn->prepare($iquery);
                             $istmt->bind_param('ii', $row["movie_id"], $_SESSION['user_id']);
                             $istmt->execute();
@@ -70,6 +70,13 @@ if(isset($_GET['submit_search'])) {
                                 <input type="submit" name="add_btn_wdl" class="like add" value="✓+"/>
                         <?php } ?>
                     </form>
+                    <?php } else { ?>
+                        <a href="login.php" class="like rate-btn">★</a>
+                        <div class="btns-form flex">
+                            <a href="login.php" class="like add">♥+</a>
+                            <a href="login.php" class="like add">✓+</a>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div> 
@@ -78,19 +85,20 @@ if(isset($_GET['submit_search'])) {
     <div id="modal-one" class="modal">
         <div class="modal-dialog">
             <div class="modal-header flex">
-                <h2>How would you rate this movie?</h2>
-                <a href="#" class="btn-close">×</a>
+                <h2 id="modal-h">How would you rate this movie?</h2>
+                <a href="#" id="close-x" class="btn-close" onclick="delDisappear()">×</a>
             </div>
             <form method="POST" action="/" id="modalResult">
                 <fieldset class="modal-body flex">
                     <span class="star-cb-group flex">
                         <?php for($i=1; $i<=5; $i++) { ?>
-                            <input type="radio" name="rating" id="r<?=$i?>" value="<?=$i?>" checked="checked"/><label for="r<?=$i?>"><?=$i?></label>
+                            <input type="radio" name="rating" id="r<?=$i?>" value="<?=$i?>" required/><label for="r<?=$i?>"><?=$i?></label>
                         <?php } ?>                          
                     </span>
                 </fieldset>
-                <div class="modal-footer">
-                    <input type="submit" name="rate_submit" class="modal-footer_btn" value="Submit"/>
+                <div class="modal-footer flex">
+                    <div id="del-appear"></div>
+                    <input type="submit" name="rate_submit" class="modal-footer_btn" value="Submit" onclick="delDisappear()"/>
                 </div>
             </form>
         </div>
