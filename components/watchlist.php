@@ -6,7 +6,7 @@
         <p class="label">My (To) Watchlist ♥</p>
         <div class="mylist flex">
             <?php 
-                $sql = "SELECT w.movie_id, title, poster, AVG(rating) FROM watchlist as w JOIN movie as m ON w.movie_id = m.movie_id LEFT JOIN movie_rating as mra ON mra.movie_id = w.movie_id WHERE w.user_id = ? GROUP BY w.movie_id ORDER BY timestmp DESC";
+                $sql = "SELECT w.movie_id, title, poster, avg_rating FROM watchlist as w JOIN movie as m ON w.movie_id = m.movie_id LEFT JOIN avg_ratings as ar ON ar.movie_id = w.movie_id WHERE w.user_id = ? GROUP BY w.movie_id ORDER BY timestmp DESC";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param('s', $_SESSION['user_id']);
                 $stmt->execute();
@@ -22,10 +22,7 @@
                         <div class="movie_info_text">
                             <div class="title"><?php echo $row["title"];?></div>
                             <div class="rating">Rating: 
-                                <?php 
-                                    for ($x = 1; $x <= round($row["AVG(rating)"]); $x++) echo "★";
-                                    for ($y = 1; $y <= 5-round($row["AVG(rating)"]); $y++) echo "☆";
-                                ?>
+                                <?php for ($x = 1; $x <= round($row["avg_rating"]); $x++) echo "★"; for ($y = 1; $y <= 5-round($row["avg_rating"]); $y++) echo "☆"; ?>
                             </div>
                         </div>
                         <div class="movie_info_btns flex">
@@ -53,7 +50,7 @@
     <div class="list-box_half flex" id="wdl-mov">
         <p class="label">My Watchedlist ✓</p>
         <div class="top5 flex">
-        <?php $sql = "SELECT w.movie_id, title, poster, AVG(rating) FROM watchedlist as w JOIN movie as m ON w.movie_id = m.movie_id LEFT JOIN movie_rating as mra ON mra.movie_id = w.movie_id WHERE w.user_id = ? GROUP BY w.movie_id ORDER BY timestmp DESC";
+        <?php $sql = "SELECT w.movie_id, title, poster, avg_rating FROM watchedlist as w JOIN movie as m ON w.movie_id = m.movie_id LEFT JOIN avg_ratings as ar ON ar.movie_id = w.movie_id WHERE w.user_id = ? GROUP BY w.movie_id ORDER BY timestmp DESC";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param('s', $_SESSION['user_id']);
                 $stmt->execute();
@@ -70,7 +67,7 @@
                             <div class="movie_info_text">
                                 <div class="title"><?php echo $row["title"];?></div>
                                 <div class="rating">Rating: 
-                                <?php for ($x = 1; $x <= round($row["AVG(rating)"]); $x++) echo "★"; for ($y = 1; $y <= 5-round($row["AVG(rating)"]); $y++) echo "☆";?>
+                                <?php for ($x = 1; $x <= round($row["avg_rating"]); $x++) echo "★"; for ($y = 1; $y <= 5-round($row["avg_rating"]); $y++) echo "☆";?>
                                 </div>
                             </div>
                             <div class="movie_info_btns flex">

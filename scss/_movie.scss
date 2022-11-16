@@ -196,6 +196,17 @@
                             transition: all 0.2s ease-in-out;
                         }
                     }
+
+                    .cancel_edit_btn {
+                        padding: 0.8rem 1rem;
+                        margin-right: 1rem;
+                        background-color: transparent;
+
+                        &:hover {
+                            background-color: $red;
+                            color: $ivory;
+                        }
+                    }
                 }
             }
         }

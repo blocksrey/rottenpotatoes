@@ -17,7 +17,7 @@
                 while($row = $result->fetch_assoc()) { ?>
                 <div class="movie">
                     <div class="movie_poster">
-                        <a href="movie.php?id=<?=$row["movie_id"]?>" id="<?php echo $row["movie_id"]?>" onclick="movieInfo(this);"><img class="mov" src="<?php echo $row["poster"];?>"></a>
+                        <a href="movie.php?id=<?=$row["movie_id"]?>" id="<?=$row["movie_id"]?>" onclick="movieInfo(this);"><img class="mov" src="<?php echo $row["poster"];?>"></a>
                     </div>
                     <div class="movie_info flex">
                         <div class="movie_info_text flex">

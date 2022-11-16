@@ -1,10 +1,13 @@
 <?php session_start();
-    require_once "connection.php"; 
+require_once "connection.php"; 
 
-    if(isset($_POST['submit_login'])) {
-        $fname = $_POST['username'];	
-        $passwd = hash('sha512', $_POST['pwd']);	
+if(isset($_POST['submit_login'])) {
+    $fname = $_POST['username'];	
+    $passwd = hash('sha512', $_POST['pwd']);
 
+    $conn->begin_transaction();
+
+    try {
         $sql = "SELECT user_id, username, password FROM users WHERE username=? AND password=?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('ss', $fname, $passwd);
@@ -18,6 +21,7 @@
         } else {
             $_SESSION['username'] = $username;
             $_SESSION['user_id'] = $user_id;
+            $_SESSION['password'] = $_POST['pwd'];
 
             $sql = "UPDATE users SET status = TRUE WHERE username=?";
             $stmt = $conn->prepare($sql);
@@ -27,11 +31,22 @@
 
             header("location: home.php");
         }
-    } else if(isset($_POST['submit_signup'])) {
-        $fname = $_POST['username'];	
-        $email = $_POST['email'];	
-        $passwd = hash('SHA512', $_POST['pwd']);
 
+        $conn->commit();
+    } catch (mysqli_sql_exception $exception) {
+        $conn->rollback();
+        throw $exception;
+    }	
+}
+
+if(isset($_POST['submit_signup'])) {
+    $fname = $_POST['username'];	
+    $email = $_POST['email'];	
+    $passwd = hash('SHA512', $_POST['pwd']);
+
+    $conn->begin_transaction();
+
+    try {
         $result1 = "SELECT COUNT(*) FROM users WHERE email=?";
         $stmt1 = $conn->prepare($result1);
         $stmt1->bind_param('s', $email);
@@ -49,7 +64,7 @@
         $stmt2->close();
 
         if(preg_match("/[\'^£$%&*()}{!@#~?><>,|=+¬-]/", $fname)) {
-            $fname_error = "Name must contain only alphabets, dot, underdash, and space.";
+            $fname_error = "Username must contain only alphabets, dot, underdash, and space.";
         } else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $email_error = "Please enter a valid email.";
         } else if(strlen($_POST['pwd']) < 6) {
@@ -69,7 +84,12 @@
                 header("location: welcome.php");
             }
         }
-    }
 
-    mysqli_close($conn);
-?>
+        $conn->commit();
+    } catch (mysqli_sql_exception $exception) {
+        $conn->rollback();
+        throw $exception;
+    }	
+}
+
+mysqli_close($conn); ?>

@@ -3,7 +3,7 @@
 if(isset($_GET['submit_search'])) { 
     $fsearch = $_GET['search'];	
 
-    $sql = "SELECT m.movie_id, title, poster, AVG(rating) FROM movie as m LEFT JOIN movie_rating as mr ON mr.movie_id = m.movie_id WHERE title LIKE CONCAT('%',?,'%') GROUP BY m.movie_id UNION SELECT m.movie_id, title, poster, AVG(rating) FROM movie_keyword as mk JOIN movie as m ON m.movie_id = mk.movie_id JOIN keywords AS k ON k.keyword_id = mk.keyword_id LEFT JOIN movie_rating as mr ON mr.movie_id = mk.movie_id WHERE keyword LIKE CONCAT('%',?,'%') GROUP BY m.movie_id UNION SELECT m.movie_id, title, poster, AVG(rating) FROM movie_category as mc JOIN movie as m ON m.movie_id = mc.movie_id JOIN categories AS c ON c.category_id = mc.category_id LEFT JOIN movie_rating as mr ON mr.movie_id = mc.movie_id WHERE category LIKE CONCAT('%',?,'%') GROUP BY m.movie_id UNION SELECT m.movie_id, title, poster, AVG(rating) FROM movie_actors as ma JOIN movie as m ON m.movie_id = ma.movie_id JOIN actors AS a ON a.actor_id = ma.actor_id LEFT JOIN movie_rating as mr ON mr.movie_id = ma.movie_id WHERE actor_name LIKE CONCAT('%',?,'%') GROUP BY m.movie_id";
+    $sql = "SELECT m.movie_id, title, poster, avg_rating FROM movie AS m LEFT JOIN avg_ratings AS ar ON ar.movie_id = m.movie_id WHERE title LIKE CONCAT('%',?,'%') GROUP BY m.movie_id UNION SELECT m.movie_id, title, poster, avg_rating FROM movie_keyw_view AS mkv JOIN movie AS m ON m.movie_id = mkv.movie_id LEFT JOIN avg_ratings AS ar ON ar.movie_id = mkv.movie_id WHERE keyword LIKE CONCAT('%',?,'%') GROUP BY m.movie_id UNION SELECT m.movie_id, title, poster, avg_rating FROM movie_categ_view as mcv JOIN movie AS m ON m.movie_id = mcv.movie_id LEFT JOIN avg_ratings AS ar ON ar.movie_id = mcv.movie_id WHERE category LIKE CONCAT('%',?,'%') GROUP BY m.movie_id UNION SELECT m.movie_id, title, poster, avg_rating FROM movie_actors_view AS mav JOIN movie AS m ON m.movie_id = mav.movie_id LEFT JOIN avg_ratings AS ar ON ar.movie_id = mav.movie_id WHERE actor_name LIKE CONCAT('%',?,'%') GROUP BY m.movie_id";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('ssss', $fsearch, $fsearch, $fsearch, $fsearch);
     $stmt->execute();
@@ -27,8 +27,8 @@ if(isset($_GET['submit_search'])) {
                     <div class="title"><?=$row['title'];?></div>
                     <div class="rating">Rating: 
                         <?php 
-                            for ($x = 1; $x <= round($row['AVG(rating)']); $x++) echo "★";
-                            for ($y = 1; $y <= 5-round($row['AVG(rating)']); $y++) echo "☆";
+                            for ($x = 1; $x <= round($row['avg_rating']); $x++) echo "★";
+                            for ($y = 1; $y <= 5-round($row['avg_rating']); $y++) echo "☆";
                         ?>
                     </div>
                 </div>

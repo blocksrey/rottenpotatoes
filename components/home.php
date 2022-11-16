@@ -6,7 +6,7 @@
         <div class="movie-box_half flex">
             <p class="small-label">Most Watched Movie This Week</p>
             <div class="big-movie flex">
-                <?php $sql = "SELECT COUNT(w.user_id), m.movie_id, title, poster, avg_rate FROM watchedlist as w JOIN movie as m ON m.movie_id = w.movie_id LEFT JOIN ( SELECT movie_id, AVG(rating) AS avg_rate FROM movie_rating GROUP BY movie_id ) as t ON t.movie_id = w.movie_id WHERE timestmp >= DATE_SUB(CURDATE(), INTERVAL DAYOFWEEK(CURDATE())-1 DAY) GROUP BY title ORDER BY COUNT(w.user_id) DESC LIMIT 1";
+                <?php $sql = "SELECT COUNT(w.user_id), m.movie_id, title, poster, avg_rating FROM watchedlist AS w JOIN movie as m ON m.movie_id = w.movie_id LEFT JOIN ( SELECT movie_id, avg_rating FROM avg_ratings GROUP BY movie_id ) AS t ON t.movie_id = w.movie_id WHERE timestmp >= DATE_SUB(CURDATE(), INTERVAL DAYOFWEEK(CURDATE())-1 DAY) GROUP BY title ORDER BY COUNT(w.user_id) DESC LIMIT 1";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     $result = $stmt->get_result();
@@ -16,7 +16,7 @@
                             $movieName = $row["title"];
                             $moviePoster = $row["poster"];
                             $movieId = $row["movie_id"];
-                            $movieRating = $row["avg_rate"];
+                            $movieRating = $row["avg_rating"];
                         }
                     } ?>
                 <div class="big-movie_poster">
@@ -34,14 +34,14 @@
             <p class="small-label">Newest Movie</p>
             <div class="big-movie flex">
                 <div class="big-movie_poster">
-                    <?php $sql = "SELECT m.movie_id, title, poster, AVG(rating) FROM movie as m LEFT JOIN movie_rating as mra ON mra.movie_id = m.movie_id GROUP BY movie_id ORDER BY release_date DESC LIMIT 1";
+                    <?php $sql = "SELECT m.movie_id, title, poster, avg_rating FROM movie AS m LEFT JOIN avg_ratings AS ar ON ar.movie_id = m.movie_id GROUP BY movie_id ORDER BY release_date DESC LIMIT 1";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 $movieName = $row["title"];
                                 $moviePoster = $row["poster"];
                                 $movieId = $row["movie_id"];
-                                $movieRating = $row["AVG(rating)"];
+                                $movieRating = $row["avg_rating"];
                             }
                         } ?>
                     <img src="<?=$moviePoster?>">

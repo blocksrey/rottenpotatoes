@@ -49,17 +49,34 @@
         $myReview = $_POST['myreview'];
         $myRating = $_POST['myrating'];
 
-        $sql = "UPDATE movie_rating SET rating=? WHERE user_id=? AND movie_id=?";
+        $sql = "SELECT review, rating FROM movie_review AS mr JOIN movie_rating AS mra ON mra.user_id = mr.user_id AND mra.movie_id = mr.movie_id WHERE mr.user_id=? AND mr.movie_id=?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param('iii', $myRating, $_SESSION['user_id'], $movieID);
+        $stmt->bind_param('ii', $_SESSION['user_id'], $movieID);
         $stmt->execute();
+        $stmt->bind_result($review, $rating);
+        $result = $stmt->fetch();
         $stmt->close();
 
-        $sql = "UPDATE movie_review SET review=? WHERE user_id=? AND movie_id=?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param('sii', $myReview, $_SESSION['user_id'], $movieID);
-        $stmt->execute();
-        $stmt->close();
+        if($myReview==="") {
+            $review_error = "Cannot submit an empty review";
+        } else if($myReview==$review && $myRating==$rating) {
+            $review_error = "Nor the rating nor the review values changed.";
+        } else {
+            if($myRating!==$rating) {
+                $sql = "UPDATE movie_rating SET rating=? WHERE user_id=? AND movie_id=?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param('iii', $myRating, $_SESSION['user_id'], $movieID);
+                $stmt->execute();
+                $stmt->close();
+            }
+            if($myReview!==$review) {
+                $sql = "UPDATE movie_review SET review=? WHERE user_id=? AND movie_id=?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param('sii', $myReview, $_SESSION['user_id'], $movieID);
+                $stmt->execute();
+                $stmt->close();
+            }
+        }
     }
 
     if(isset($_POST['del_review'])) {
@@ -78,16 +95,14 @@
 ?>
 
 <div class="container flex">
-    <?php
-        $sql = "SELECT m.title, m.poster, m.description, AVG(rating) FROM movie_rating as mr JOIN movie as m ON m.movie_id = mr.movie_id WHERE mr.movie_id = ?";
+    <?php $sql = "SELECT m.title, m.poster, m.description, AVG(rating) FROM movie_rating as mr JOIN movie as m ON m.movie_id = mr.movie_id WHERE mr.movie_id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('i', $movieID);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
         if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-    ?>
+            while($row = $result->fetch_assoc()) { ?>
     <div class="label" id="moviephp-title"><?=$row["title"]?></div>
     <div class="moviephp-options flex">
         <div class="rating">Average Rating: 
@@ -97,7 +112,6 @@
             <div class="flex add-movie_btns">
                 <form method="POST" action="mymovies.php?id=<?=$movieID?>&url=movie.php?id=<?=$movieID?>" class="wl-wdl-wrap flex">
                     <?php if(!empty($_SESSION['user_id'])) {
-
                     $query = "SELECT movie_id FROM watchlist WHERE movie_id=? AND user_id=?";
                     $getQuery = $conn->prepare($query);
                     $getQuery->bind_param('ii', $movieID, $_SESSION['user_id']);
@@ -109,7 +123,6 @@
                     <?php } else { ?>
                         <input type="submit" name="add_btn_wl" class="like add big" value="Watchlist ♥+"/>
                     <?php } 
-
                     $query = "SELECT movie_id FROM watchedlist WHERE movie_id=? AND user_id=?";
                     $getQuery = $conn->prepare($query);
                     $getQuery->bind_param('ii', $movieID, $_SESSION['user_id']);
@@ -140,17 +153,15 @@
             <?php } } ?>
             <div class="movie_info_actors">
                 <span class="cast">Cast:</span> 
-                <?php
-                    $sql = "SELECT actor_name, role FROM actors as a LEFT JOIN movie_actors as ma ON a.actor_id = ma.actor_id WHERE movie_id = ?";
+                <?php $sql = "SELECT actor_name, role FROM actors as a LEFT JOIN movie_actors as ma ON a.actor_id = ma.actor_id WHERE movie_id = ?";
                     $stmt = $conn->prepare($sql);
                     $stmt->bind_param('i', $movieID);
                     $stmt->execute();
                     $result = $stmt->get_result();
                     $stmt->close();
                     if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                ?>
-                <?=$row['actor_name']?> as <?=$row['role']?>, 
+                        while($row = $result->fetch_assoc()) { ?>
+                <?=$row['actor_name']?> <?php if($row['role']!==NULL){ echo "as ".$row['role']; } ?>, 
                 <?php } } ?>
             </div>
         </div>
@@ -170,11 +181,9 @@
                 $stmt->execute();
                 $result = $stmt->get_result();
                 $stmt->close();
-
                 if($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
-                        if(isset($_POST['edit_review'])) { 
-            ?>
+                        if(isset($_POST['edit_review'])) { ?>
                 <div class="username">@<?=$_SESSION['username']?></div>
                 <form method="POST">
                     <div class="input-box">
@@ -183,32 +192,33 @@
                     <div class="options flex">
                         <div class="options_rate">
                             <label for="myrating" class="options_rate_label">My Rating:</label>
-                                <select name="myrating" id="myrating" class="options_rate_box">
-                                    <?php for($x=1; $x<=5; $x++) {
-                                        if($x == $row['rating']) { ?>
-                                            <option value="<?=$row['rating'];?>" selected><?=$row['rating'];?> stars</option>
-                                    <?php } else { ?>
-                                            <option value="<?=$x;?>"><?=$x;?> stars</option>
-                                    <?php } } ?> 
-                                </select> 
+                            <select name="myrating" id="myrating" class="options_rate_box">
+                                <?php for($x=1; $x<=5; $x++) {
+                                    if($x == $row['rating']) { ?>
+                                        <option value="<?=$row['rating']?>" selected><?=$row['rating']?> stars</option>
+                                <?php } else { ?>
+                                        <option value="<?=$x;?>"><?=$x;?> stars</option>
+                                <?php } } ?> 
+                            </select> 
                         </div>
                         <div class="options_submit">
+                            <input type="submit" name="cancel_edit_submit" class="cancel_edit_btn" value="x"/>
                             <input type="submit" name="review_edit_submit" value="Submit"/>
                         </div>
                     </div>
                 </form> 
-                        <?php } else { ?>
-                        <form method="POST">
-                            <div class="top-info flex" id="non-edit-rev">
-                                <div class="username">@<?=$_SESSION['username']?></div>
-                                <div class="right flex">
-                                    <input type="submit" name="del_review" class="edit" value="Delete"/>
-                                    <input type="submit" name="edit_review" class="edit" value="Edit"/>
-                                    <div class="username"><?=$row['rating']?>/5 stars</div>
-                                </div>
-                            </div>
-                            <div class="my-review"><?=$row['review']?></div>
-                        </form>
+                <?php } else { ?>
+                <form method="POST">
+                    <div class="top-info flex" id="non-edit-rev">
+                        <div class="username">@<?=$_SESSION['username']?></div>
+                        <div class="right flex">
+                            <input type="submit" name="del_review" class="edit" value="Delete"/>
+                            <input type="submit" name="edit_review" class="edit" value="Edit"/>
+                            <div class="username"><?=$row['rating']?>/5 stars</div>
+                        </div>
+                    </div>
+                    <div class="my-review"><?=$row['review']?></div>
+                </form>
             <?php } } } else { ?>
                 <div class="username">@<?=$_SESSION['username']?></div>               
                 <form method="POST">
@@ -232,7 +242,7 @@
                                         if($x == $starBtnVal) { ?>
                                             <option value="<?=$starBtnVal?>" selected><?=$starBtnVal?> stars</option>
                                     <?php } else { ?>
-                                            <option value="<?=$x;?>"><?=$x;?> stars</option>
+                                            <option value="<?=$x?>"><?=$x?> stars</option>
                                     <?php } } ?> 
                                 </select> 
                             <?php } ?>
@@ -243,10 +253,10 @@
                     </div>
                 </form>
             <?php } } ?>
+            <div class="error" id="err"><?php echo $review_error;?></div>
         </div>
         <div class="review_all flex">
-            <?php
-                $sql = "SELECT u.username, mr.review, mra.rating FROM movie_review as mr JOIN users as u ON mr.user_id = u.user_id JOIN movie_rating as mra ON mr.user_id = mra.user_id AND mr.movie_id = mra.movie_id WHERE mr.movie_id = ?";
+            <?php $sql = "SELECT u.username, mr.review, mra.rating FROM movie_review as mr JOIN users as u ON mr.user_id = u.user_id JOIN movie_rating as mra ON mr.user_id = mra.user_id AND mr.movie_id = mra.movie_id WHERE mr.movie_id = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param('i', $movieID);
                 $stmt->execute();
@@ -280,7 +290,7 @@
                     </span>
                 </fieldset>
                 <div class="modal-footer flex">
-                    <?php if(!empty($starBtnVal)) { echo"<input type='submit' name='del_rate' class='modal-footer_btn delete' value='Delete'/>";}?>
+                    <?php if(!empty($starBtnVal)) { echo"<input type='submit' name='rate_del' class='modal-footer_btn delete' value='Delete'/>";}?>
                     <input type="submit" name="rate_submit" class="modal-footer_btn" value="Submit"/>
                 </div>
             </form>

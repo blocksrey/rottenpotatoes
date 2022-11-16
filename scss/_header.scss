@@ -3,7 +3,7 @@
 	background-color: $ivory;
 	border-radius: 0;
 	display: grid;
-	grid-template-columns: 15% 50% 35%;
+	grid-template-columns: 15% 45% 40%;
 	padding: 0.15rem 3.5rem;
 }
 
@@ -24,8 +24,8 @@
 		height: 65%;
 		justify-content: flex-start;
 		padding: 0 1.5rem;
-		margin-left: 10%;
 		border-radius: 1.5rem;
+		margin-left: 10%;
 		opacity: 0.8;
 		color: $darkBlue;
 		font-family: $fontFamily;
@@ -45,15 +45,12 @@
 	gap: 1rem;
 	color: $ivory;
 
-	a { 
+	&_button {
 		font-size: 1.05rem;
 		font-weight: $bold;
 		width: 7rem;
 		height: 2.5rem;
 		border-radius: 2rem;
-	}
-
-	&_button {
 		transition: all 0.3s ease-in-out;
 
 		&:hover {
@@ -87,7 +84,6 @@
         }
     }
 }
-
 
 
 

@@ -27,6 +27,23 @@ function delDisappear() {
     if (typeof(element) != 'undefined' && element != null) { element.remove(); }
 }
 
+//display or hash password in user's personal information page
+function displayPwd() {
+    document.getElementById("pwd-bullet").classList.toggle("hidden");
+    document.getElementById("pwd-show").classList.toggle("hidden");
+    let icon = document.getElementById("icon");
+    icon.classList.remove("fa-eye-slash");
+    icon.classList.add("fa-eye");
+}
+
+function hidePwd() {
+    document.getElementById("pwd-bullet").classList.toggle("hidden");
+    document.getElementById("pwd-show").classList.toggle("hidden");
+    let icon = document.getElementById("icon");
+    icon.classList.remove("fa-eye");
+    icon.classList.add("fa-eye-slash");
+}
+
 
 
 

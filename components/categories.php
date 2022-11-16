@@ -20,7 +20,7 @@
         <?php if(isset($_GET['category'])) {
             $category = $_GET['category'];	
 
-            $sql = "SELECT mc.movie_id, title, poster, category, rating FROM movie_category as mc LEFT JOIN categories as c ON c.category_id = mc.category_id LEFT JOIN movie as m ON m.movie_id = mc.movie_id LEFT JOIN ( SELECT m.movie_id, AVG(rating) as rating FROM movie_rating as mr JOIN movie as m ON m.movie_id = mr.movie_id GROUP BY mr.movie_id ) as mra ON mra.movie_id = mc.movie_id WHERE c.category = ? GROUP BY mc.movie_id;";
+            $sql = "SELECT mcv.movie_id, title, poster, category, avg_rating FROM movie_categ_view AS mcv LEFT JOIN movie as m ON m.movie_id = mcv.movie_id LEFT JOIN ( SELECT m.movie_id, avg_rating FROM avg_ratings AS ar JOIN movie as m ON m.movie_id = ar.movie_id GROUP BY ar.movie_id ) AS mra ON mra.movie_id = mcv.movie_id WHERE mcv.category = ? GROUP BY mcv.movie_id";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param('s', $category);
             $stmt->execute();
@@ -35,12 +35,9 @@
                 </div>
                 <div class="movie_info flex">
                     <div class="movie_info_text">
-                        <div class="title"><?=$row['title'];?></div>
+                        <div class="title"><?=$row['title']?></div>
                         <div class="rating">Rating: 
-                            <?php 
-                                for ($x = 1; $x <= round($row["rating"]); $x++) echo "★";
-                                for ($y = 1; $y <= 5-round($row["rating"]); $y++) echo "☆";
-                            ?>
+                            <?php for ($x = 1; $x <= round($row["avg_rating"]); $x++) echo "★"; for ($y = 1; $y <= 5-round($row["avg_rating"]); $y++) echo "☆"; ?>
                         </div>
                     </div>
                     <div class="movie_info_btns flex">
