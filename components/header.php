@@ -25,7 +25,7 @@
 			<a href="./ranking.php" class="menu_button flex">Ranking</a>
 			<a href="./categories.php" class="menu_button flex">Categories</a>
 			<?php if(empty($_SESSION['user_id'])) { ?>
-                <a href="login.php" class="menu_button flex menu_login">Sign in</a>
+                <a href="./login.php" class="menu_button flex menu_login">Sign in</a>
             <?php } else { ?>
                 <a href="./logout.php" class="menu_button flex menu_logout">Sign Out</a>
 				<a href="./mypage.php"><i class="fa fa-user-o" style="font-size: 1.8rem;"></i></a>

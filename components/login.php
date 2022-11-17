@@ -8,7 +8,7 @@
             <input type="text" name="username" placeholder="Username" class="user_input" required/>
             <input type="password" name="pwd" placeholder="Password" class="user_input" required/>
             <input type="submit" name="submit_login" class="user_submit" value="Sign in">
-            <div class="error" id="err"><?php echo $login_error;?></div>
+            <div class="error" id="err"><?php if(!empty($login_error)) { echo $login_error; };?></div>
             <p class="message">Not registered? <a href="register.php">Create an account</a></p>
         </form>
     </div>

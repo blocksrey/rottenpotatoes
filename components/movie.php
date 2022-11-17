@@ -253,7 +253,7 @@
                     </div>
                 </form>
             <?php } } ?>
-            <div class="error" id="err"><?php echo $review_error;?></div>
+            <div class="error" id="err"><?php if(!empty($review_error)) { echo $review_error; }?></div>
         </div>
         <div class="review_all flex">
             <?php $sql = "SELECT u.username, mr.review, mra.rating FROM movie_review as mr JOIN users as u ON mr.user_id = u.user_id JOIN movie_rating as mra ON mr.user_id = mra.user_id AND mr.movie_id = mra.movie_id WHERE mr.movie_id = ?";
@@ -298,5 +298,11 @@
     </div>
 </div>
 
-<?php mysqli_close($conn); ?>
+<?php 
+mysqli_free_result($result);
+mysqli_free_result($queryResult);
+mysqli_free_result($ratingResult);
+mysqli_free_result($resulti);
+mysqli_close($conn); 
+?>
 

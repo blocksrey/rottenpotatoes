@@ -136,7 +136,7 @@
             </div>  
         </form>
         <a href="#modal-one" class="mypage_cancel_btns mypage_delacc_btns">Delete My Account</a>
-        <div class="error" id="err"><?php echo $edit_error;?></div>
+        <div class="error" id="err"><?php if(!empty($edit_error)) { echo $edit_error; }?></div>
     </div>
 </div>
 <div id="modal-one" class="modal">
@@ -155,4 +155,7 @@
     </div>
 </div>
 
-<?php mysqli_close($conn); ?>
+<?php 
+mysqli_free_result($result);
+mysqli_close($conn); 
+?>

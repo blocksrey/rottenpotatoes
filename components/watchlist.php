@@ -120,5 +120,9 @@
 </div>
 <?php } else { header("location: login.php"); } ?>
 
-<?php mysqli_close($conn); ?>
+<?php 
+mysqli_free_result($result);
+mysqli_free_result($resulti);
+mysqli_close($conn); 
+?>
 

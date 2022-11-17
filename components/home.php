@@ -157,7 +157,11 @@
     <p class="footer_text">Copyright © Rotten Potatoes. Developed by Daniela, Yoon Soo, and Jeffrey.</p>
 </div>
 
-<?php mysqli_close($conn); ?>
+<?php 
+mysqli_free_result($result);
+mysqli_free_result($resulti);
+mysqli_close($conn); 
+?>
 
 
 

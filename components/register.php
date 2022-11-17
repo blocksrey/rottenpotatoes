@@ -9,7 +9,7 @@
             <input type="text" name="email" placeholder="Email" class="user_input" required/>
             <input type="password" name="pwd" placeholder="Password" class="user_input" required/>
             <input type="submit" name="submit_signup" class="user_submit" value="Create">
-            <div class="error"><?php echo $fname_error .$email_error .$passwd_error .$email_login_error .$username_login_error; ?></div>
+            <div class="error"><?php if(!empty($fname_error)) { echo $fname_error; }if (!empty($email_error)) { echo $email_error; } if(!empty($passwd_error)) { echo $passwd_error; } if(!empty($email_login_error)) { echo $email_login_error; } if (!empty($username_login_error)) { echo $username_login_error; } ?></div>
             <p class="message">Already registered? <a href="login.php">Sign In</a></p>
         </form>
     </div>

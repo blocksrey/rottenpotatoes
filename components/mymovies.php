@@ -97,5 +97,7 @@ if(isset($_POST['rate_del'])) {
 }
 
 header("location: " .$url);
+mysqli_free_result($result);
+mysqli_free_result($ratingResult);
 mysqli_close($conn);
 ?>
